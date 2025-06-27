@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Video - FitGym</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(45deg, #ff6b35, #1a1a1a);
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+        
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 3;
+        }
+        
+        .status {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 10;
+        }
+        
+        .error-msg {
+            color: #ff6b35;
+        }
+        
+        .success-msg {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="status" id="status">
+        <div>Estado del video: <span id="videoStatus">Cargando...</span></div>
+        <div>Red State: <span id="networkStatus">Checking...</span></div>
+        <div>Ready State: <span id="readyStatus">-</span></div>
+        <div id="errorDetails"></div>
+    </div>
+
+    <div class="video-container">
+        <div class="hero-video">
+            <video id="testVideo" autoplay muted loop playsinline preload="metadata">
+                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                <source src="https://file-examples.com/storage/fe86c5f9939c1e52c80cb6c/2017/10/file_example_MP4_480_1_5MG.mp4" type="video/mp4">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                Tu navegador no soporta video HTML5.
+            </video>
+        </div>
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Prueba de Video de Fondo</h1>
+            <p>Este archivo prueba si el video se reproduce correctamente</p>
+            <button onclick="forcePlay()">Forzar Reproducción</button>
+            <button onclick="testAllSources()">Probar Todas las Fuentes</button>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('testVideo');
+        const status = document.getElementById('videoStatus');
+        const networkStatus = document.getElementById('networkStatus');
+        const readyStatus = document.getElementById('readyStatus');
+        const errorDetails = document.getElementById('errorDetails');
+
+        // Verificar conectividad
+        if (navigator.onLine) {
+            networkStatus.textContent = 'Online';
+            networkStatus.className = 'success-msg';
+        } else {
+            networkStatus.textContent = 'Offline';
+            networkStatus.className = 'error-msg';
+        }
+
+        // Eventos del video
+        video.addEventListener('loadstart', () => {
+            status.textContent = 'Carga iniciada';
+            console.log('Video load started');
+        });
+
+        video.addEventListener('loadedmetadata', () => {
+            status.textContent = 'Metadatos cargados';
+            readyStatus.textContent = video.readyState;
+            console.log('Video metadata loaded');
+        });
+
+        video.addEventListener('loadeddata', () => {
+            status.textContent = 'Datos cargados';
+            readyStatus.textContent = video.readyState;
+            console.log('Video data loaded');
+        });
+
+        video.addEventListener('canplay', () => {
+            status.textContent = 'Puede reproducir';
+            status.className = 'success-msg';
+            readyStatus.textContent = video.readyState;
+            console.log('Video can play');
+        });
+
+        video.addEventListener('playing', () => {
+            status.textContent = 'Reproduciendo ✓';
+            status.className = 'success-msg';
+            console.log('Video is playing');
+        });
+
+        video.addEventListener('error', (e) => {
+            status.textContent = 'Error en el video';
+            status.className = 'error-msg';
+            const error = video.error;
+            if (error) {
+                errorDetails.innerHTML = `<div class="error-msg">Error ${error.code}: ${error.message}</div>`;
+            }
+            console.log('Video error:', e, error);
+        });
+
+        video.addEventListener('stalled', () => {
+            status.textContent = 'Video pausado/trabado';
+            status.className = 'error-msg';
+            console.log('Video stalled');
+        });
+
+        // Función para forzar reproducción
+        function forcePlay() {
+            video.play().then(() => {
+                console.log('Manual play successful');
+            }).catch(error => {
+                console.log('Manual play failed:', error);
+                errorDetails.innerHTML = `<div class="error-msg">Play failed: ${error.message}</div>`;
+            });
+        }
+
+        // Función para probar todas las fuentes
+        function testAllSources() {
+            const sources = video.querySelectorAll('source');
+            let currentIndex = 0;
+            
+            const tryNextSource = () => {
+                if (currentIndex < sources.length) {
+                    const src = sources[currentIndex].src;
+                    console.log(`Testing source ${currentIndex + 1}: ${src}`);
+                    video.src = src;
+                    video.load();
+                    currentIndex++;
+                } else {
+                    console.log('All sources tested');
+                }
+            };
+            
+            video.addEventListener('error', tryNextSource, { once: true });
+            tryNextSource();
+        }
+
+        // Actualizar ready state periódicamente
+        setInterval(() => {
+            readyStatus.textContent = video.readyState;
+        }, 1000);
+
+        // Auto-diagnóstico
+        setTimeout(() => {
+            if (video.readyState === 0) {
+                console.log('Video not loading after 3 seconds - possible network issue');
+                errorDetails.innerHTML = '<div class="error-msg">Video no carga - posible problema de red</div>';
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

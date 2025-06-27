@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases - FitGym</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="clases.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html"><h2><i class="fas fa-dumbbell"></i> FitGym</h2></a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="clases.html" class="nav-link active">Clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="entrenadores.html" class="nav-link">Entrenadores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="precios.html" class="nav-link">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero section para clases -->
+    <section class="classes-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Nuestras Clases</h1>
+                <p>Descubre la variedad de entrenamientos que tenemos para ti</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros CSS puro -->
+    <section class="filters-section">
+        <div class="container">
+            <h2>Filtrar por Categoría</h2>
+            <div class="filter-controls">
+                <input type="radio" id="all" name="filter" checked>
+                <label for="all" class="filter-btn">
+                    <i class="fas fa-th"></i>
+                    Todas
+                </label>
+
+                <input type="radio" id="musculacion" name="filter">
+                <label for="musculacion" class="filter-btn">
+                    <i class="fas fa-dumbbell"></i>
+                    Musculación
+                </label>
+
+                <input type="radio" id="crossfit" name="filter">
+                <label for="crossfit" class="filter-btn">
+                    <i class="fas fa-fire"></i>
+                    CrossFit
+                </label>
+
+                <input type="radio" id="yoga" name="filter">
+                <label for="yoga" class="filter-btn">
+                    <i class="fas fa-leaf"></i>
+                    Yoga
+                </label>
+
+                <input type="radio" id="spinning" name="filter">
+                <label for="spinning" class="filter-btn">
+                    <i class="fas fa-bicycle"></i>
+                    Spinning
+                </label>
+            </div>
+        </div>
+    
+        <!-- Galería Masonry -->
+        <div class="classes-gallery">
+            <div class="container">
+                <div class="masonry-grid">
+                    <!-- Musculación -->
+                    <article class="class-item" data-category="musculacion" tabindex="0" style="--item-index: 0">
+                        <div class="class-image">
+                            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=300&fit=crop" alt="Entrenamiento con Pesas">
+                            <div class="class-overlay">
+                                <div class="overlay-content">
+                                    <h3>Entrenamiento con Pesas</h3>
+                                    <p>Desarrolla fuerza y masa muscular con técnicas avanzadas de levantamiento de pesas.</p>
+                                    <div class="class-details">
+                                        <span><i class="fas fa-clock"></i> 60 min</span>
+                                        <span><i class="fas fa-users"></i> 8 max</span>
+                                        <span><i class="fas fa-fire"></i> Alto</span>
+                                    </div>
+                                    <button class="btn-reserve">Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="class-item" data-category="crossfit" tabindex="0" style="--item-index: 1">
+                        <div class="class-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" alt="CrossFit WOD">
+                            <div class="class-overlay">
+                                <div class="overlay-content">
+                                    <h3>CrossFit WOD</h3>
+                                    <p>Workout of the Day intenso y variado que combina diferentes disciplinas para un entrenamiento completo.</p>
+                                    <div class="class-details">
+                                        <span><i class="fas fa-clock"></i> 50 min</span>
+                                        <span><i class="fas fa-users"></i> 15 max</span>
+                                        <span><i class="fas fa-fire"></i> Extremo</span>
+                                    </div>
+                                    <button class="btn-reserve">Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="class-item" data-category="yoga" tabindex="0" style="--item-index: 2">
+                        <div class="class-image">
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop" alt="Hatha Yoga">
+                            <div class="class-overlay">
+                                <div class="overlay-content">
+                                    <h3>Hatha Yoga</h3>
+                                    <p>Yoga tradicional para principiantes con posturas básicas y respiración consciente.</p>
+                                    <div class="class-details">
+                                        <span><i class="fas fa-clock"></i> 75 min</span>
+                                        <span><i class="fas fa-users"></i> 20 max</span>
+                                        <span><i class="fas fa-leaf"></i> Relax</span>
+                                    </div>
+                                    <button class="btn-reserve">Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="class-item" data-category="spinning" tabindex="0" style="--item-index: 3">
+                        <div class="class-image">
+                            <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=400&h=300&fit=crop" alt="Spinning Básico">
+                            <div class="class-overlay">
+                                <div class="overlay-content">
+                                    <h3>Spinning Básico</h3>
+                                    <p>Pedaleo al ritmo de la música con diferentes intensidades y técnicas cardiovasculares.</p>
+                                    <div class="class-details">
+                                        <span><i class="fas fa-clock"></i> 45 min</span>
+                                        <span><i class="fas fa-users"></i> 25 max</span>
+                                        <span><i class="fas fa-fire"></i> Medio</span>
+                                    </div>
+                                    <button class="btn-reserve">Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="class-item" data-category="musculacion" tabindex="0" style="--item-index: 4">
+                        <div class="class-image">
+                            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop" alt="Entrenamiento Funcional">
+                            <div class="class-overlay">
+                                <div class="overlay-content">
+                                    <h3>Entrenamiento Funcional</h3>
+                                    <p>Movimientos naturales para el día a día, mejorando fuerza, equilibrio y coordinación.</p>
+                                    <div class="class-details">
+                                        <span><i class="fas fa-clock"></i> 45 min</span>
+                                        <span><i class="fas fa-users"></i> 12 max</span>
+                                        <span><i class="fas fa-fire"></i> Medio</span>
+                                    </div>
+                                    <button class="btn-reserve">Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="class-item" data-category="yoga" tabindex="0" style="--item-index: 5">
+                        <div class="class-image">
+                            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop" alt="Vinyasa Flow">
+                            <div class="class-overlay">
+                                <div class="overlay-content">
+                                    <h3>Vinyasa Flow</h3>
+                                    <p>Yoga dinámico con secuencias fluidas que conectan movimiento y respiración.</p>
+                                    <div class="class-details">
+                                        <span><i class="fas fa-clock"></i> 60 min</span>
+                                        <span><i class="fas fa-users"></i> 15 max</span>
+                                        <span><i class="fas fa-leaf"></i> Medio</span>
+                                    </div>
+                                    <button class="btn-reserve">Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="class-item" data-category="crossfit" tabindex="0" style="--item-index: 6">
+                        <div class="class-image">
+                            <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&h=300&fit=crop" alt="CrossFit Endurance">
+                            <div class="class-overlay">
+                                <div class="overlay-content">
+                                    <h3>CrossFit Endurance</h3>
+                                    <p>Mejora tu resistencia cardiovascular con entrenamientos de alta intensidad y duración.</p>
+                                    <div class="class-details">
+                                        <span><i class="fas fa-clock"></i> 45 min</span>
+                                        <span><i class="fas fa-users"></i> 10 max</span>
+                                        <span><i class="fas fa-fire"></i> Alto</span>
+                                    </div>
+                                    <button class="btn-reserve">Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="class-item" data-category="spinning" tabindex="0" style="--item-index: 7">
+                        <div class="class-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" alt="Spinning HIIT">
+                            <div class="class-overlay">
+                                <div class="overlay-content">
+                                    <h3>Spinning HIIT</h3>
+                                    <p>Intervalos de alta intensidad en bicicleta para maximizar la quema de calorías.</p>
+                                    <div class="class-details">
+                                        <span><i class="fas fa-clock"></i> 30 min</span>
+                                        <span><i class="fas fa-users"></i> 20 max</span>
+                                        <span><i class="fas fa-fire"></i> Extremo</span>
+                                    </div>
+                                    <button class="btn-reserve">Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="class-item" data-category="musculacion" tabindex="0" style="--item-index: 8">
+                        <div class="class-image">
+                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&h=300&fit=crop" alt="Boxeo Fitness">
+                            <div class="class-overlay">
+                                <div class="overlay-content">
+                                    <h3>Boxeo Fitness</h3>
+                                    <p>Combina técnicas de boxeo con entrenamiento cardiovascular para fuerza y coordinación.</p>
+                                    <div class="class-details">
+                                        <span><i class="fas fa-clock"></i> 45 min</span>
+                                        <span><i class="fas fa-users"></i> 16 max</span>
+                                        <span><i class="fas fa-fire"></i> Alto</span>
+                                    </div>
+                                    <button class="btn-reserve">Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabla de Horarios Responsiva -->
+    <section class="schedule-section">
+        <div class="container">
+            <h2>Horarios Semanales</h2>
+            <div class="schedule-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Horario</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                            <th>Sábado</th>
+                            <th>Domingo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-slot" data-label="Horario">07:00</td>
+                            <td data-label="Lunes">
+                                <div class="class-musculacion">
+                                    <div class="class-name">Entrenamiento Funcional</div>
+                                    <div class="instructor-name">Carlos Méndez</div>
+                                </div>
+                            </td>
+                            <td data-label="Martes">
+                                <div class="class-spinning">
+                                    <div class="class-name">Spinning Básico</div>
+                                    <div class="instructor-name">Ana García</div>
+                                </div>
+                            </td>
+                            <td data-label="Miércoles">
+                                <div class="class-musculacion">
+                                    <div class="class-name">Entrenamiento Funcional</div>
+                                    <div class="instructor-name">Carlos Méndez</div>
+                                </div>
+                            </td>
+                            <td data-label="Jueves">
+                                <div class="class-spinning">
+                                    <div class="class-name">Spinning Básico</div>
+                                    <div class="instructor-name">Ana García</div>
+                                </div>
+                            </td>
+                            <td data-label="Viernes">
+                                <div class="class-musculacion">
+                                    <div class="class-name">Boxeo Fitness</div>
+                                    <div class="instructor-name">Miguel Torres</div>
+                                </div>
+                            </td>
+                            <td data-label="Sábado">
+                                <div class="class-yoga">
+                                    <div class="class-name">Hatha Yoga</div>
+                                    <div class="instructor-name">Laura Sánchez</div>
+                                </div>
+                            </td>
+                            <td data-label="Domingo">-</td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot" data-label="Horario">09:00</td>
+                            <td data-label="Lunes">
+                                <div class="class-yoga">
+                                    <div class="class-name">Vinyasa Flow</div>
+                                    <div class="instructor-name">Laura Sánchez</div>
+                                </div>
+                            </td>
+                            <td data-label="Martes">
+                                <div class="class-crossfit">
+                                    <div class="class-name">CrossFit WOD</div>
+                                    <div class="instructor-name">Roberto Kim</div>
+                                </div>
+                            </td>
+                            <td data-label="Miércoles">
+                                <div class="class-yoga">
+                                    <div class="class-name">Vinyasa Flow</div>
+                                    <div class="instructor-name">Laura Sánchez</div>
+                                </div>
+                            </td>
+                            <td data-label="Jueves">
+                                <div class="class-crossfit">
+                                    <div class="class-name">CrossFit WOD</div>
+                                    <div class="instructor-name">Roberto Kim</div>
+                                </div>
+                            </td>
+                            <td data-label="Viernes">
+                                <div class="class-spinning">
+                                    <div class="class-name">Spinning HIIT</div>
+                                    <div class="instructor-name">Pedro López</div>
+                                </div>
+                            </td>
+                            <td data-label="Sábado">
+                                <div class="class-musculacion">
+                                    <div class="class-name">Pesas Libres</div>
+                                    <div class="instructor-name">Carlos Méndez</div>
+                                </div>
+                            </td>
+                            <td data-label="Domingo">
+                                <div class="class-yoga">
+                                    <div class="class-name">Yoga Relax</div>
+                                    <div class="instructor-name">Laura Sánchez</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot" data-label="Horario">11:00</td>
+                            <td data-label="Lunes">
+                                <div class="class-spinning">
+                                    <div class="class-name">Spinning Avanzado</div>
+                                    <div class="instructor-name">Pedro López</div>
+                                </div>
+                            </td>
+                            <td data-label="Martes">
+                                <div class="class-musculacion">
+                                    <div class="class-name">Pesas Libres</div>
+                                    <div class="instructor-name">Miguel Torres</div>
+                                </div>
+                            </td>
+                            <td data-label="Miércoles">
+                                <div class="class-spinning">
+                                    <div class="class-name">Spinning Avanzado</div>
+                                    <div class="instructor-name">Pedro López</div>
+                                </div>
+                            </td>
+                            <td data-label="Jueves">
+                                <div class="class-musculacion">
+                                    <div class="class-name">Pesas Libres</div>
+                                    <div class="instructor-name">Miguel Torres</div>
+                                </div>
+                            </td>
+                            <td data-label="Viernes">
+                                <div class="class-crossfit">
+                                    <div class="class-name">CrossFit Endurance</div>
+                                    <div class="instructor-name">Roberto Kim</div>
+                                </div>
+                            </td>
+                            <td data-label="Sábado">
+                                <div class="class-spinning">
+                                    <div class="class-name">Spinning Básico</div>
+                                    <div class="instructor-name">Ana García</div>
+                                </div>
+                            </td>
+                            <td data-label="Domingo">-</td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot" data-label="Horario">17:00</td>
+                            <td data-label="Lunes">
+                                <div class="class-crossfit">
+                                    <div class="class-name">CrossFit WOD</div>
+                                    <div class="instructor-name">Roberto Kim</div>
+                                </div>
+                            </td>
+                            <td data-label="Martes">
+                                <div class="class-yoga">
+                                    <div class="class-name">Hatha Yoga</div>
+                                    <div class="instructor-name">Laura Sánchez</div>
+                                </div>
+                            </td>
+                            <td data-label="Miércoles">
+                                <div class="class-crossfit">
+                                    <div class="class-name">CrossFit WOD</div>
+                                    <div class="instructor-name">Roberto Kim</div>
+                                </div>
+                            </td>
+                            <td data-label="Jueves">
+                                <div class="class-yoga">
+                                    <div class="class-name">Hatha Yoga</div>
+                                    <div class="instructor-name">Laura Sánchez</div>
+                                </div>
+                            </td>
+                            <td data-label="Viernes">
+                                <div class="class-musculacion">
+                                    <div class="class-name">Boxeo Fitness</div>
+                                    <div class="instructor-name">Miguel Torres</div>
+                                </div>
+                            </td>
+                            <td data-label="Sábado">
+                                <div class="class-crossfit">
+                                    <div class="class-name">CrossFit Endurance</div>
+                                    <div class="instructor-name">Roberto Kim</div>
+                                </div>
+                            </td>
+                            <td data-label="Domingo">-</td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot" data-label="Horario">19:00</td>
+                            <td data-label="Lunes">
+                                <div class="class-spinning">
+                                    <div class="class-name">Spinning HIIT</div>
+                                    <div class="instructor-name">Pedro López</div>
+                                </div>
+                            </td>
+                            <td data-label="Martes">
+                                <div class="class-musculacion">
+                                    <div class="class-name">Entrenamiento Funcional</div>
+                                    <div class="instructor-name">Carlos Méndez</div>
+                                </div>
+                            </td>
+                            <td data-label="Miércoles">
+                                <div class="class-spinning">
+                                    <div class="class-name">Spinning HIIT</div>
+                                    <div class="instructor-name">Pedro López</div>
+                                </div>
+                            </td>
+                            <td data-label="Jueves">
+                                <div class="class-musculacion">
+                                    <div class="class-name">Entrenamiento Funcional</div>
+                                    <div class="instructor-name">Carlos Méndez</div>
+                                </div>
+                            </td>
+                            <td data-label="Viernes">
+                                <div class="class-yoga">
+                                    <div class="class-name">Vinyasa Flow</div>
+                                    <div class="instructor-name">Laura Sánchez</div>
+                                </div>
+                            </td>
+                            <td data-label="Sábado">-</td>
+                            <td data-label="Domingo">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-dumbbell"></i> FitGym</h3>
+                    <p>Tu gimnasio de confianza para alcanzar todos tus objetivos fitness. Entrenamientos personalizados y un ambiente motivador.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="clases.html">Clases</a></li>
+                        <li><a href="entrenadores.html">Entrenadores</a></li>
+                        <li><a href="precios.html">Precios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Nuestras Clases</h4>
+                    <ul>
+                        <li><a href="#musculacion">Musculación</a></li>
+                        <li><a href="#crossfit">CrossFit</a></li>
+                        <li><a href="#yoga">Yoga</a></li>
+                        <li><a href="#spinning">Spinning</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contáctanos</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Fitness 123, Ciudad</p>
+                        <p><i class="fas fa-phone"></i> +54 11 1234-5678</p>
+                        <p><i class="fas fa-envelope"></i> info@fitgym.com</p>
+                        <p><i class="fas fa-clock"></i> Lun-Dom: 6:00 - 22:00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitGym. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

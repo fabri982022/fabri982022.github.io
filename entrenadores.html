@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrenadores - FitGym</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="entrenadores.css">
+    <link rel="stylesheet" href="advanced-effects.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html"><h2><i class="fas fa-dumbbell"></i> FitGym</h2></a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="clases.html" class="nav-link">Clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="entrenadores.html" class="nav-link active">Entrenadores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="precios.html" class="nav-link">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero section para entrenadores -->
+    <section class="trainers-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Nuestros Entrenadores</h1>
+                <p>Profesionales certificados para guiarte hacia tus objetivos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros por especialidad -->
+    <section class="trainer-filters">
+        <div class="container">
+            <h2>Especialidades</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-users"></i>
+                    Todos
+                </button>
+                <button class="filter-btn" data-filter="personal">
+                    <i class="fas fa-user"></i>
+                    Personal Trainer
+                </button>
+                <button class="filter-btn" data-filter="grupo">
+                    <i class="fas fa-users"></i>
+                    Clases Grupales
+                </button>
+                <button class="filter-btn" data-filter="nutricion">
+                    <i class="fas fa-apple-alt"></i>
+                    Nutrición
+                </button>
+                <button class="filter-btn" data-filter="rehabilitacion">
+                    <i class="fas fa-heart"></i>
+                    Rehabilitación
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo de entrenadores -->
+    <section class="trainers-section">
+        <div class="container">
+            <div class="trainers-grid">
+                <!-- Entrenador 1 -->
+                <div class="trainer-card" data-category="personal grupo">
+                    <div class="card-inner">
+                        <!-- Lado frontal -->
+                        <div class="card-front">
+                            <div class="trainer-image">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=400&fit=crop&crop=face" alt="Carlos Rodríguez">
+                                <div class="trainer-overlay">
+                                    <div class="social-links">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-facebook"></i></a>
+                                        <a href="#"><i class="fas fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trainer-info">
+                                <h3>Carlos Rodríguez</h3>
+                                <p class="trainer-title">Personal Trainer & CrossFit</p>
+                                <div class="rating-stars">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-value">5.0</span>
+                                </div>
+                                <div class="specialties">
+                                    <span class="specialty">CrossFit</span>
+                                    <span class="specialty">Funcional</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lado trasero -->
+                        <div class="card-back">
+                            <div class="trainer-details">
+                                <h3>Carlos Rodríguez</h3>
+                                <p class="experience">5 años de experiencia</p>
+                                <p class="bio">"Especialista en entrenamiento funcional y CrossFit. Mi objetivo es ayudarte a superar tus límites."</p>
+                                
+                                <div class="skills">
+                                    <h4>Habilidades</h4>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Fuerza</span>
+                                            <span>95%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="95"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Cardio</span>
+                                            <span>90%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="90"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Flexibilidad</span>
+                                            <span>75%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="75"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info">
+                                    <p><i class="fas fa-certificate"></i> Certificado NASM</p>
+                                    <p><i class="fas fa-clock"></i> Lun-Vie: 6:00-22:00</p>
+                                </div>
+                                
+                                <button class="btn-contact">Contactar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrenador 2 -->
+                <div class="trainer-card" data-category="grupo nutricion">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="trainer-image">
+                                <img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=300&h=400&fit=crop&crop=face" alt="María González">
+                                <div class="trainer-overlay">
+                                    <div class="social-links">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-facebook"></i></a>
+                                        <a href="#"><i class="fas fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trainer-info">
+                                <h3>María González</h3>
+                                <p class="trainer-title">Instructora de Yoga & Nutricionista</p>
+                                <div class="rating-stars">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-value">4.9</span>
+                                </div>
+                                <div class="specialties">
+                                    <span class="specialty">Yoga</span>
+                                    <span class="specialty">Nutrición</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-back">
+                            <div class="trainer-details">
+                                <h3>María González</h3>
+                                <p class="experience">8 años de experiencia</p>
+                                <p class="bio">"Experta en yoga y nutrición holística. Creo en el equilibrio mente-cuerpo para una vida plena."</p>
+                                
+                                <div class="skills">
+                                    <h4>Habilidades</h4>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Flexibilidad</span>
+                                            <span>98%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="98"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Mindfulness</span>
+                                            <span>95%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="95"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Nutrición</span>
+                                            <span>92%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="92"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info">
+                                    <p><i class="fas fa-certificate"></i> Certificada RYT-500</p>
+                                    <p><i class="fas fa-clock"></i> Mar-Sáb: 7:00-20:00</p>
+                                </div>
+                                
+                                <button class="btn-contact">Contactar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrenador 3 -->
+                <div class="trainer-card" data-category="personal grupo">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="trainer-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop&crop=face" alt="Ana Martínez">
+                                <div class="trainer-overlay">
+                                    <div class="social-links">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-facebook"></i></a>
+                                        <a href="#"><i class="fas fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trainer-info">
+                                <h3>Ana Martínez</h3>
+                                <p class="trainer-title">Instructora de Spinning</p>
+                                <div class="rating-stars">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-value">4.7</span>
+                                </div>
+                                <div class="specialties">
+                                    <span class="specialty">Spinning</span>
+                                    <span class="specialty">Cardio</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-back">
+                            <div class="trainer-details">
+                                <h3>Ana Martínez</h3>
+                                <p class="experience">6 años de experiencia</p>
+                                <p class="bio">"Especialista en spinning y cardio. Mi energía y motivación te llevarán al siguiente nivel."</p>
+                                
+                                <div class="skills">
+                                    <h4>Habilidades</h4>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Cardio</span>
+                                            <span>96%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="96"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Motivación</span>
+                                            <span>98%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="98"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Resistencia</span>
+                                            <span>94%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="94"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info">
+                                    <p><i class="fas fa-certificate"></i> Certificada Spinning</p>
+                                    <p><i class="fas fa-clock"></i> Lun-Vie: 7:00-21:00</p>
+                                </div>
+                                
+                                <button class="btn-contact">Contactar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrenador 4 -->
+                <div class="trainer-card" data-category="rehabilitacion personal">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="trainer-image">
+                                <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=400&fit=crop&crop=face" alt="Dr. Luis Fernández">
+                                <div class="trainer-overlay">
+                                    <div class="social-links">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#"><i class="fas fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trainer-info">
+                                <h3>Dr. Luis Fernández</h3>
+                                <p class="trainer-title">Fisioterapeuta & Rehabilitación</p>
+                                <div class="rating-stars">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-value">5.0</span>
+                                </div>
+                                <div class="specialties">
+                                    <span class="specialty">Rehabilitación</span>
+                                    <span class="specialty">Fisioterapia</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-back">
+                            <div class="trainer-details">
+                                <h3>Dr. Luis Fernández</h3>
+                                <p class="experience">12 años de experiencia</p>
+                                <p class="bio">"Especialista en rehabilitación deportiva y prevención de lesiones. Tu salud es mi prioridad."</p>
+                                
+                                <div class="skills">
+                                    <h4>Habilidades</h4>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Rehabilitación</span>
+                                            <span>99%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="99"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Anatomía</span>
+                                            <span>97%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="97"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Terapia Manual</span>
+                                            <span>95%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="95"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info">
+                                    <p><i class="fas fa-user-md"></i> Licenciado en Fisioterapia</p>
+                                    <p><i class="fas fa-clock"></i> Lun-Vie: 8:00-18:00</p>
+                                </div>
+                                
+                                <button class="btn-contact">Contactar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrenador 5 -->
+                <div class="trainer-card" data-category="personal grupo">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="trainer-image">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=400&fit=crop&crop=face" alt="Sofia López">
+                                <div class="trainer-overlay">
+                                    <div class="social-links">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                                        <a href="#"><i class="fas fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trainer-info">
+                                <h3>Sofia López</h3>
+                                <p class="trainer-title">Instructora de Zumba & Danza</p>
+                                <div class="rating-stars">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-value">4.8</span>
+                                </div>
+                                <div class="specialties">
+                                    <span class="specialty">Zumba</span>
+                                    <span class="specialty">Danza</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-back">
+                            <div class="trainer-details">
+                                <h3>Sofia López</h3>
+                                <p class="experience">4 años de experiencia</p>
+                                <p class="bio">"Bailarina profesional y instructora de Zumba. Vamos a divertirnos mientras nos ponemos en forma!"</p>
+                                
+                                <div class="skills">
+                                    <h4>Habilidades</h4>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Danza</span>
+                                            <span>97%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="97"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Coordinación</span>
+                                            <span>95%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="95"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Energía</span>
+                                            <span>100%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info">
+                                    <p><i class="fas fa-music"></i> Licenciada en Danza</p>
+                                    <p><i class="fas fa-clock"></i> Mar-Dom: 9:00-19:00</p>
+                                </div>
+                                
+                                <button class="btn-contact">Contactar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrenador 6 -->
+                <div class="trainer-card" data-category="nutricion">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="trainer-image">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=400&fit=crop&crop=face" alt="Dra. Carmen Ruiz">
+                                <div class="trainer-overlay">
+                                    <div class="social-links">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#"><i class="fas fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trainer-info">
+                                <h3>Dra. Carmen Ruiz</h3>
+                                <p class="trainer-title">Nutricionista Deportiva</p>
+                                <div class="rating-stars">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-value">4.9</span>
+                                </div>
+                                <div class="specialties">
+                                    <span class="specialty">Nutrición</span>
+                                    <span class="specialty">Dietética</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-back">
+                            <div class="trainer-details">
+                                <h3>Dra. Carmen Ruiz</h3>
+                                <p class="experience">10 años de experiencia</p>
+                                <p class="bio">"Especialista en nutrición deportiva y planes personalizados. La alimentación es clave para el éxito."</p>
+                                
+                                <div class="skills">
+                                    <h4>Habilidades</h4>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Nutrición</span>
+                                            <span>98%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="98"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Planes Personalizados</span>
+                                            <span>96%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="96"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-info">
+                                            <span>Suplementación</span>
+                                            <span>92%</span>
+                                        </div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-skill="92"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info">
+                                    <p><i class="fas fa-graduation-cap"></i> Máster en Nutrición</p>
+                                    <p><i class="fas fa-clock"></i> Lun-Vie: 9:00-17:00</p>
+                                </div>
+                                
+                                <button class="btn-contact">Contactar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas del equipo -->
+    <section class="team-stats">
+        <div class="container">
+            <h2>Nuestro Equipo en Números</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Entrenadores Certificados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number" data-target="4.8">0</div>
+                    <div class="stat-label">Rating Promedio</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Certificaciones</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Horas de Entrenamiento/Mes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-dumbbell"></i> FitGym</h3>
+                    <p>Tu gimnasio de confianza para alcanzar todos tus objetivos fitness.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="clases.html">Clases</a>
+                    <a href="entrenadores.html">Entrenadores</a>
+                    <a href="precios.html">Precios</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitGym. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="entrenadores.js"></script>
+</body>
+</html>

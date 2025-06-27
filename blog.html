@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - FitGym</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="advanced-effects.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header con mega-menú -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h2><i class="fas fa-dumbbell"></i> FitGym</h2>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item mega-menu">
+                        <a href="clases.html" class="nav-link">Clases <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h3>Cardio</h3>
+                                <a href="clases.html">Spinning</a>
+                                <a href="clases.html">Zumba</a>
+                                <a href="clases.html">Aeróbicos</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3>Fuerza</h3>
+                                <a href="clases.html">Crossfit</a>
+                                <a href="clases.html">Funcional</a>
+                                <a href="clases.html">Pesas</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3>Relajación</h3>
+                                <a href="clases.html">Yoga</a>
+                                <a href="clases.html">Pilates</a>
+                                <a href="clases.html">Stretching</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item mega-menu">
+                        <a href="entrenadores.html" class="nav-link">Entrenadores <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h3>Especialistas</h3>
+                                <a href="entrenadores.html">Personal Trainers</a>
+                                <a href="entrenadores.html">Instructores de Grupo</a>
+                                <a href="entrenadores.html">Nutricionistas</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item mega-menu">
+                        <a href="precios.html" class="nav-link">Precios <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h3>Membresías</h3>
+                                <a href="precios.html">Mensual</a>
+                                <a href="precios.html">Trimestral</a>
+                                <a href="precios.html">Anual</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3>Servicios</h3>
+                                <a href="precios.html#servicios-adicionales">Entrenamiento Personal</a>
+                                <a href="precios.html#servicios-adicionales">Clases Grupales</a>
+                                <a href="precios.html#servicios-adicionales">Nutrición</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link active">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Toggle de Modo Oscuro -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo oscuro">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Hero del Blog -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-header">
+                <h1>FitGym Magazine</h1>
+                <p>Tu revista digital de fitness, nutrición y bienestar</p>
+                <div class="blog-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Edición del 25 de Junio, 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros de Categorías -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="category-filters">
+                <h3>Categorías</h3>
+                <div class="filter-tags">
+                    <input type="radio" id="all" name="category" value="all" checked>
+                    <label for="all" class="filter-tag">Todas</label>
+                    
+                    <input type="radio" id="nutrition" name="category" value="nutrition">
+                    <label for="nutrition" class="filter-tag">Nutrición</label>
+                    
+                    <input type="radio" id="training" name="category" value="training">
+                    <label for="training" class="filter-tag">Entrenamiento</label>
+                    
+                    <input type="radio" id="wellness" name="category" value="wellness">
+                    <label for="wellness" class="filter-tag">Bienestar</label>
+                    
+                    <input type="radio" id="tips" name="category" value="tips">
+                    <label for="tips" class="filter-tag">Tips</label>
+                    
+                    <input type="radio" id="motivation" name="category" value="motivation">
+                    <label for="motivation" class="filter-tag">Motivación</label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid de Artículos -->
+    <main class="blog-main">
+        <div class="container">
+            <div class="newspaper-grid">
+                <!-- Artículo Principal -->
+                <article class="article-card featured glass-medium scroll-reveal-up" data-category="training">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop" alt="Entrenamiento HIIT">
+                        <div class="article-overlay">
+                            <span class="category-badge training neon-glow">Entrenamiento</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="text-gradient">HIIT: La Revolución del Entrenamiento en Intervalos</h2>
+                        <p class="article-excerpt">Descubre cómo el entrenamiento en intervalos de alta intensidad puede transformar tu físico en tiempo récord. Beneficios, rutinas y consejos de expertos.</p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar" data-initials="DR"></div>
+                                <div class="author-details">
+                                    <span class="author-name">Dr. Roberto Martínez</span>
+                                    <span class="article-date">22 Jun 2025</span>
+                                </div>
+                            </div>
+                            <div class="article-stats">
+                                <span><i class="fas fa-clock"></i> 8 min</span>
+                                <span><i class="fas fa-eye"></i> 2.4k</span>
+                                <span><i class="fas fa-heart"></i> 186</span>
+                            </div>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">HIIT</span>
+                            <span class="tag">Cardio</span>
+                            <span class="tag">Intensidad</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Artículo Secundario -->
+                <article class="article-card secondary" data-category="nutrition">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop" alt="Nutrición deportiva">
+                        <div class="article-overlay">
+                            <span class="category-badge nutrition">Nutrición</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h3>Alimentación Pre y Post Entrenamiento</h3>
+                        <p class="article-excerpt">Optimiza tus resultados con la nutrición adecuada antes y después del ejercicio.</p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar" data-initials="AS"></div>
+                                <div class="author-details">
+                                    <span class="author-name">Ana Sánchez</span>
+                                    <span class="article-date">20 Jun 2025</span>
+                                </div>
+                            </div>
+                            <div class="article-stats">
+                                <span><i class="fas fa-clock"></i> 5 min</span>
+                                <span><i class="fas fa-eye"></i> 1.8k</span>
+                            </div>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">Nutrición</span>
+                            <span class="tag">Performance</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Artículo Terciario -->
+                <article class="article-card tertiary" data-category="wellness">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=300&fit=crop" alt="Meditación">
+                        <div class="article-overlay">
+                            <span class="category-badge wellness">Bienestar</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h4>Mindfulness en el Gimnasio</h4>
+                        <p class="article-excerpt">Conecta mente y cuerpo para entrenamientos más efectivos.</p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar" data-initials="LC"></div>
+                                <span class="author-name">Laura Castro</span>
+                            </div>
+                            <span class="article-date">18 Jun 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Más Artículos -->
+                <article class="article-card regular" data-category="tips">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" alt="Tips de ejercicio">
+                        <div class="article-overlay">
+                            <span class="category-badge tips">Tips</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h4>10 Errores Comunes en el Gimnasio</h4>
+                        <p class="article-excerpt">Evita estos errores frecuentes y maximiza tus resultados de entrenamiento.</p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar" data-initials="MP"></div>
+                                <span class="author-name">Miguel Pérez</span>
+                            </div>
+                            <span class="article-date">15 Jun 2025</span>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">Tips</span>
+                            <span class="tag">Técnica</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card regular" data-category="motivation">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop" alt="Motivación fitness">
+                        <div class="article-overlay">
+                            <span class="category-badge motivation">Motivación</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h4>Mantén la Motivación Todo el Año</h4>
+                        <p class="article-excerpt">Estrategias psicológicas para mantener la constancia en tu rutina fitness.</p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar" data-initials="CR"></div>
+                                <span class="author-name">Carmen Ruiz</span>
+                            </div>
+                            <span class="article-date">12 Jun 2025</span>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">Motivación</span>
+                            <span class="tag">Psicología</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card regular" data-category="training">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=300&fit=crop" alt="Entrenamiento fuerza">
+                        <div class="article-overlay">
+                            <span class="category-badge training">Entrenamiento</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h4>Rutina de Fuerza para Principiantes</h4>
+                        <p class="article-excerpt">Construye una base sólida con esta rutina progresiva de entrenamiento de fuerza.</p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar" data-initials="JM"></div>
+                                <span class="author-name">José Morales</span>
+                            </div>
+                            <span class="article-date">10 Jun 2025</span>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">Fuerza</span>
+                            <span class="tag">Principiantes</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card regular" data-category="nutrition">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop" alt="Smoothies saludables">
+                        <div class="article-overlay">
+                            <span class="category-badge nutrition">Nutrición</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h4>Smoothies Post-Entrenamiento</h4>
+                        <p class="article-excerpt">Recetas deliciosas y nutritivas para una recuperación óptima.</p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar" data-initials="SF"></div>
+                                <span class="author-name">Sofía Fernández</span>
+                            </div>
+                            <span class="article-date">8 Jun 2025</span>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">Recetas</span>
+                            <span class="tag">Recuperación</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card regular" data-category="wellness">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop" alt="Descanso y recuperación">
+                        <div class="article-overlay">
+                            <span class="category-badge wellness">Bienestar</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h4>La Importancia del Descanso</h4>
+                        <p class="article-excerpt">Por qué el descanso es tan importante como el entrenamiento para tus resultados.</p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar" data-initials="AG"></div>
+                                <span class="author-name">Alberto González</span>
+                            </div>
+                            <span class="article-date">5 Jun 2025</span>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">Descanso</span>
+                            <span class="tag">Recuperación</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sección de Comentarios -->
+    <section class="comments-section">
+        <div class="container">
+            <h2>Últimos Comentarios</h2>
+            <div class="comments-grid">
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="comment-avatar" data-initials="MG"></div>
+                        <div class="comment-info">
+                            <h4>María García</h4>
+                            <span class="comment-date">Hace 2 horas</span>
+                        </div>
+                        <div class="comment-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>"Excelente artículo sobre HIIT. Llevo 3 semanas aplicando las rutinas y ya veo resultados increíbles. ¡Gracias por los consejos!"</p>
+                        <div class="comment-article">
+                            En: <a href="#">HIIT: La Revolución del Entrenamiento</a>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="like-btn">
+                            <i class="fas fa-heart"></i>
+                            <span>24</span>
+                        </button>
+                        <button class="reply-btn">
+                            <i class="fas fa-reply"></i>
+                            Responder
+                        </button>
+                    </div>
+                </div>
+
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="comment-avatar" data-initials="CR"></div>
+                        <div class="comment-info">
+                            <h4>Carlos Rodríguez</h4>
+                            <span class="comment-date">Hace 5 horas</span>
+                        </div>
+                        <div class="comment-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>"Los smoothies post-entrenamiento son geniales. El de plátano y proteína se ha vuelto mi favorito después de cada sesión."</p>
+                        <div class="comment-article">
+                            En: <a href="#">Smoothies Post-Entrenamiento</a>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="like-btn">
+                            <i class="fas fa-heart"></i>
+                            <span>18</span>
+                        </button>
+                        <button class="reply-btn">
+                            <i class="fas fa-reply"></i>
+                            Responder
+                        </button>
+                    </div>
+                </div>
+
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="comment-avatar" data-initials="LM"></div>
+                        <div class="comment-info">
+                            <h4>Laura Martínez</h4>
+                            <span class="comment-date">Hace 1 día</span>
+                        </div>
+                        <div class="comment-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>"Como principiante, la rutina de fuerza me ha ayudado muchísimo. Muy bien explicada y progresiva. ¡Recomendadísima!"</p>
+                        <div class="comment-article">
+                            En: <a href="#">Rutina de Fuerza para Principiantes</a>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="like-btn">
+                            <i class="fas fa-heart"></i>
+                            <span>32</span>
+                        </button>
+                        <button class="reply-btn">
+                            <i class="fas fa-reply"></i>
+                            Responder
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter del Blog -->
+    <section class="blog-newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>¿Te gustó nuestro contenido?</h2>
+                    <p>Suscríbete a nuestro newsletter y recibe los mejores artículos de fitness directamente en tu email.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu email aquí" required>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Suscribirse
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-dumbbell"></i> FitGym</h3>
+                    <p>Tu gimnasio de confianza para alcanzar todos tus objetivos fitness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="clases.html">Clases</a></li>
+                        <li><a href="entrenadores.html">Entrenadores</a></li>
+                        <li><a href="precios.html">Precios</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Categorías del Blog</h4>
+                    <ul>
+                        <li><a href="#">Nutrición</a></li>
+                        <li><a href="#">Entrenamiento</a></li>
+                        <li><a href="#">Bienestar</a></li>
+                        <li><a href="#">Tips</a></li>
+                        <li><a href="#">Motivación</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Suscríbete para recibir contenido exclusivo y ofertas especiales.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitGym. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>

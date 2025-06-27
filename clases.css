@@ -1,0 +1,812 @@
+/* ========== ESTILOS ESPECÍFICOS PARA CLASES.HTML ========== */
+
+/* Variables específicas para clases */
+:root {
+    --masonry-gap: 1rem;
+    --card-border-radius: 15px;
+    --overlay-bg: rgba(255, 107, 53, 0.9);
+    --zoom-scale: 1.03;
+    --transition-hover: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    --card-min-height: 280px;
+    --card-max-width: 320px;
+}
+
+/* Hero section para clases */
+.classes-hero {
+    height: 50vh;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(26, 26, 26, 0.9)),
+                url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1920&h=800&fit=crop') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-inverse);
+    position: relative;
+    margin-top: 80px;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.classes-hero .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-inverse);
+    animation: slideInUp 1s ease;
+}
+
+.classes-hero .hero-content p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: slideInUp 1s ease 0.2s both;
+}
+
+/* ========== SISTEMA DE FILTRADO CSS PURO ========== */
+
+.filters-section {
+    padding: 3rem 0;
+    background: var(--bg-secondary);
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    font-size: 2.2rem;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+/* Ocultar inputs radio */
+.filter-controls input[type="radio"] {
+    display: none;
+}
+
+/* Estilos de los botones de filtro */
+.filter-btn {
+    padding: 1rem 2rem;
+    background: var(--bg-primary);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-full);
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition-base);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    min-height: var(--touch-target-min);
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.filter-btn:hover {
+    background: var(--primary-alpha);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.filter-btn:hover::before {
+    left: 100%;
+}
+
+/* Estado activo del filtro */
+.filter-controls input[type="radio"]:checked + .filter-btn {
+    background: var(--primary-color);
+    color: var(--text-on-primary);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+.filter-controls input[type="radio"]:checked + .filter-btn::before {
+    display: none;
+}
+
+/* Focus para accesibilidad */
+.filter-controls input[type="radio"]:focus + .filter-btn {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
+/* ========== GALERÍA MASONRY CON CSS GRID ========== */
+
+.classes-gallery {
+    padding: 4rem 0;
+    background: var(--bg-primary);
+    overflow: hidden;
+    clear: both;
+}
+
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-max-width), 1fr));
+    grid-gap: var(--masonry-gap);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Tarjetas de tamaño uniforme */
+.class-item {
+    opacity: 1;
+    transform: scale(1);
+    transition: var(--transition-hover);
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-md);
+    display: block;
+    height: var(--card-min-height);
+    position: relative;
+}
+
+/* Efecto hover en toda la tarjeta */
+.class-item:hover {
+    transform: scale(var(--zoom-scale));
+    box-shadow: var(--shadow-xl);
+    z-index: 10;
+    position: relative;
+}
+
+/* ========== FILTRADO CSS CON :CHECKED ========== */
+
+/* Mostrar todas por defecto */
+.class-item {
+    display: block;
+}
+
+/* Ocultar todas cuando un filtro específico está activo */
+#musculacion:checked ~ .classes-gallery .class-item:not([data-category="musculacion"]),
+#crossfit:checked ~ .classes-gallery .class-item:not([data-category="crossfit"]),
+#yoga:checked ~ .classes-gallery .class-item:not([data-category="yoga"]),
+#spinning:checked ~ .classes-gallery .class-item:not([data-category="spinning"]) {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+/* Animación de aparición para elementos filtrados */
+#musculacion:checked ~ .classes-gallery .class-item[data-category="musculacion"],
+#crossfit:checked ~ .classes-gallery .class-item[data-category="crossfit"],
+#yoga:checked ~ .classes-gallery .class-item[data-category="yoga"],
+#spinning:checked ~ .classes-gallery .class-item[data-category="spinning"],
+#all:checked ~ .classes-gallery .class-item {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* ========== TARJETAS CON EFECTOS AVANZADOS ========== */
+
+.class-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--card-border-radius);
+}
+
+.class-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-hover);
+}
+
+/* Efecto zoom en imagen */
+.class-item:hover .class-image img {
+    transform: scale(1.1);
+    filter: brightness(0.8);
+}
+
+/* Overlay con información */
+.class-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition-hover);
+    border-radius: var(--card-border-radius);
+    padding: 2rem;
+    text-align: center;
+}
+
+.class-item:hover .class-overlay {
+    opacity: 1;
+}
+
+.overlay-content h3 {
+    color: var(--text-inverse);
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.1s;
+}
+
+.class-item:hover .overlay-content h3 {
+    transform: translateY(0);
+}
+
+.overlay-content p {
+    color: var(--text-inverse);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.2s;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+.class-item:hover .overlay-content p {
+    transform: translateY(0);
+}
+
+.class-details {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.3s;
+}
+
+.class-item:hover .class-details {
+    transform: translateY(0);
+}
+
+.class-details span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--border-radius-full);
+    color: var(--text-inverse);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.btn-reserve {
+    background: var(--text-inverse);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius-full);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-base);
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.4s;
+    font-size: 0.9rem;
+}
+
+.class-item:hover .btn-reserve {
+    transform: translateY(0);
+}
+
+.btn-reserve:hover {
+    background: var(--primary-alpha);
+    transform: scale(1.05) translateY(0);
+    box-shadow: var(--shadow-md);
+}
+
+/* ========== TABLA DE HORARIOS RESPONSIVA ========== */
+
+.schedule-section {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+    display: block;
+    visibility: visible;
+    position: relative;
+    z-index: 1;
+}
+
+.schedule-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+}
+
+.schedule-container {
+    overflow-x: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-primary);
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    font-size: 0.95rem;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--primary-alpha);
+    position: relative;
+    transition: var(--transition-base);
+}
+
+.schedule-table th {
+    background: var(--primary-color);
+    color: var(--text-on-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.schedule-table tbody tr:hover {
+    background: var(--primary-alpha);
+}
+
+.schedule-table tbody tr:hover td {
+    color: var(--text-primary);
+}
+
+/* Estilos para diferentes tipos de clases */
+.class-musculacion {
+    background: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+    border-left: 4px solid var(--success-color);
+}
+
+.class-crossfit {
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--error-color);
+    border-left: 4px solid var(--error-color);
+}
+
+.class-yoga {
+    background: rgba(23, 162, 184, 0.1);
+    color: var(--info-color);
+    border-left: 4px solid var(--info-color);
+}
+
+.class-spinning {
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+    border-left: 4px solid var(--warning-color);
+}
+
+.time-slot {
+    font-weight: 600;
+    color: var(--secondary-color);
+    background: var(--bg-tertiary);
+}
+
+.class-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.instructor-name {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* ========== RESPONSIVE PARA MÓVILES ========== */
+
+@media (max-width: 1024px) {
+    .masonry-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        padding: 0 1rem;
+    }
+    
+    .filter-controls {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .classes-hero {
+        height: 35vh;
+        margin-top: 70px;
+    }
+    
+    .classes-hero .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .masonry-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 1rem;
+    }
+    
+    .filter-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 250px;
+        justify-content: center;
+    }
+    
+    /* Tabla responsive - Vista de tarjetas en móvil */
+    .schedule-container {
+        overflow: visible;
+    }
+    
+    .schedule-table,
+    .schedule-table thead,
+    .schedule-table tbody,
+    .schedule-table th,
+    .schedule-table td,
+    .schedule-table tr {
+        display: block;
+    }
+    
+    .schedule-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .schedule-table tr {
+        border: 1px solid var(--primary-alpha);
+        margin-bottom: 1rem;
+        border-radius: var(--border-radius-md);
+        padding: 1rem;
+        background: var(--bg-primary);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .schedule-table td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        white-space: normal;
+    }
+    
+    .schedule-table td:before {
+        content: attr(data-label) ": ";
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+}
+
+@media (max-width: 480px) {
+    .classes-hero .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .classes-hero .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .masonry-grid {
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .overlay-content {
+        padding: 1rem;
+    }
+    
+    .overlay-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .class-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        width: 200px;
+    }
+}
+
+/* ========== MODO OSCURO ========== */
+
+[data-theme="dark"] .classes-hero {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(45, 45, 45, 0.9)),
+                url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1920&h=800&fit=crop') center/cover;
+}
+
+[data-theme="dark"] .schedule-table th {
+    background: var(--secondary-color);
+}
+
+[data-theme="dark"] .schedule-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ========== ACCESIBILIDAD ========== */
+
+@media (prefers-reduced-motion: reduce) {
+    .class-item {
+        transition: none;
+    }
+    
+    .class-item:hover {
+        transform: none;
+    }
+    
+    .class-overlay,
+    .overlay-content h3,
+    .overlay-content p,
+    .class-details,
+    .btn-reserve {
+        transition: none;
+    }
+    
+    .filter-btn::before {
+        display: none;
+    }
+}
+
+/* Focus visible para tarjetas */
+.class-item:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+    transform: scale(var(--zoom-scale));
+}
+
+.class-item:focus-visible .class-overlay {
+    opacity: 1;
+}
+
+/* ========== ANIMACIONES ESPECÍFICAS ========== */
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de carga de tarjetas */
+.class-item {
+    animation: fadeInScale 0.6s ease forwards;
+    animation-delay: calc(var(--item-index, 0) * 0.1s);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ========== ESTILOS PARA FOOTER DE CLASES ========== */
+
+.footer {
+    background: #2c2c2c;
+    color: #ffffff;
+    padding: 3rem 0 1.5rem 0;
+    margin-top: 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #ff6b35;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-section h4 {
+    color: #ff6b35;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ff6b35;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: #ff6b35;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    background: #e55a2b;
+    transform: translateY(-3px);
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+    color: #cccccc;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-info i {
+    color: #ff6b35;
+    width: 16px;
+}
+
+/* Newsletter section */
+.newsletter-section {
+    background: #3a3a3a;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.newsletter-section h4 {
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.newsletter-section p {
+    color: #cccccc;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #555;
+    background: #555;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.newsletter-form input::placeholder {
+    color: #aaa;
+}
+
+.newsletter-form button {
+    padding: 0.5rem 1rem;
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #e55a2b;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #444;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.footer-bottom a {
+    color: #ff6b35;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
+/* ========== ESTILOS PARA FOOTER DE CLASES ========== */

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios - FitGym</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="precios.css">
+    <link rel="stylesheet" href="advanced-effects.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header con mega-menú -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h2><i class="fas fa-dumbbell"></i> FitGym</h2>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item mega-menu">
+                        <a href="clases.html" class="nav-link">Clases <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h3>Cardio</h3>
+                                <a href="clases.html">Spinning</a>
+                                <a href="clases.html">Zumba</a>
+                                <a href="clases.html">Aeróbicos</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3>Fuerza</h3>
+                                <a href="clases.html">Crossfit</a>
+                                <a href="clases.html">Funcional</a>
+                                <a href="clases.html">Pesas</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3>Relajación</h3>
+                                <a href="clases.html">Yoga</a>
+                                <a href="clases.html">Pilates</a>
+                                <a href="clases.html">Stretching</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item mega-menu">
+                        <a href="entrenadores.html" class="nav-link">Entrenadores <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h3>Especialistas</h3>
+                                <a href="entrenadores.html">Personal Trainers</a>
+                                <a href="entrenadores.html">Instructores de Grupo</a>
+                                <a href="entrenadores.html">Nutricionistas</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item mega-menu">
+                        <a href="precios.html" class="nav-link active">Precios <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h3>Membresías</h3>
+                                <a href="precios.html">Mensual</a>
+                                <a href="precios.html">Trimestral</a>
+                                <a href="precios.html">Anual</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3>Servicios</h3>
+                                <a href="#servicios-adicionales">Entrenamiento Personal</a>
+                                <a href="#servicios-adicionales">Clases Grupales</a>
+                                <a href="#servicios-adicionales">Nutrición</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero de precios -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1>Nuestros Planes</h1>
+            <p>Elige el plan que mejor se adapte a tus objetivos y estilo de vida</p>
+            
+            <!-- Toggle mensual/anual -->
+            <div class="billing-toggle">
+                <span class="toggle-label">Mensual</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="billingToggle">
+                    <span class="slider">
+                        <span class="slider-text monthly">Mes</span>
+                        <span class="slider-text annual">Año</span>
+                    </span>
+                </label>
+                <span class="toggle-label">Anual <span class="discount-badge">Ahorra 20%</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planes de precios -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Plan Básico -->
+                <div class="pricing-card basic">
+                    <div class="card-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3>Básico</h3>
+                        <p class="plan-description">Perfecto para comenzar tu rutina fitness</p>
+                    </div>
+                    
+                    <div class="price-section">
+                        <div class="price-container">
+                            <span class="currency">$</span>
+                            <span class="price monthly-price" data-monthly="29" data-annual="278">29</span>
+                            <span class="period monthly-period">/ mes</span>
+                            <span class="period annual-period" style="display: none;">/ año</span>
+                        </div>
+                        <div class="annual-savings" style="display: none;">
+                            <span class="original-price">$348/año</span>
+                            <span class="savings">Ahorras $70</span>
+                        </div>
+                    </div>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Acceso a sala de pesas 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Equipamiento completo de musculación y cardio</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Horario extendido 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Lunes a viernes de 6:00 a 23:00</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Vestuarios y duchas 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Instalaciones modernas y limpias</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>App móvil de seguimiento 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Registra tu progreso y rutinas</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item disabled">
+                            <i class="fas fa-times"></i>
+                            <span>Clases grupales</span>
+                        </div>
+                        <div class="feature-item disabled">
+                            <i class="fas fa-times"></i>
+                            <span>Entrenador personal</span>
+                        </div>
+                    </div>
+
+                    <button class="cta-button">
+                        <span>Elegir Plan</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Plan Premium (Más Popular) -->
+                <div class="pricing-card premium popular">
+                    <div class="popular-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Más Popular</span>
+                    </div>
+                    
+                    <div class="card-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Premium</h3>
+                        <p class="plan-description">La opción completa para resultados máximos</p>
+                    </div>
+                    
+                    <div class="price-section">
+                        <div class="price-container">
+                            <span class="currency">$</span>
+                            <span class="price monthly-price" data-monthly="59" data-annual="566">59</span>
+                            <span class="period monthly-period">/ mes</span>
+                            <span class="period annual-period" style="display: none;">/ año</span>
+                        </div>
+                        <div class="annual-savings" style="display: none;">
+                            <span class="original-price">$708/año</span>
+                            <span class="savings">Ahorras $142</span>
+                        </div>
+                    </div>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Todo del plan Básico 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Acceso completo a instalaciones</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Clases grupales ilimitadas 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Yoga, Spinning, Zumba, Crossfit y más</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Acceso 24/7 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Entrena cuando quieras, donde quieras</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Evaluación nutricional 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Plan alimentario personalizado</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>2 sesiones de entrenador 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Por mes con profesional certificado</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Zona de recuperación 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Sauna, jacuzzi y área de estiramiento</div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <button class="cta-button">
+                        <span>Elegir Plan</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Plan Elite -->
+                <div class="pricing-card elite">
+                    <div class="card-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Elite</h3>
+                        <p class="plan-description">Para atletas que buscan el máximo rendimiento</p>
+                    </div>
+                    
+                    <div class="price-section">
+                        <div class="price-container">
+                            <span class="currency">$</span>
+                            <span class="price monthly-price" data-monthly="89" data-annual="854">89</span>
+                            <span class="period monthly-period">/ mes</span>
+                            <span class="period annual-period" style="display: none;">/ año</span>
+                        </div>
+                        <div class="annual-savings" style="display: none;">
+                            <span class="original-price">$1068/año</span>
+                            <span class="savings">Ahorras $214</span>
+                        </div>
+                    </div>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Todo del plan Premium 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Acceso completo sin restricciones</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Entrenador personal ilimitado 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Sesiones personalizadas cuando necesites</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Análisis corporal mensual 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">InBody y seguimiento de progreso</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Terapia de recuperación 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Masajes deportivos y fisioterapia</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Suplementación incluida 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Proteínas y suplementos deportivos</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Acceso a eventos VIP 
+                                <div class="tooltip">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="tooltip-content">Workshops exclusivos y masterclasses</div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <button class="cta-button">
+                        <span>Elegir Plan</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comparador de planes -->
+            <div class="comparison-section">
+                <h2>Comparación Detallada</h2>
+                <div class="comparison-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Características</th>
+                                <th>Básico</th>
+                                <th>Premium</th>
+                                <th>Elite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Acceso a equipamiento</td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Horario de acceso</td>
+                                <td>6:00 - 23:00</td>
+                                <td>24/7</td>
+                                <td>24/7</td>
+                            </tr>
+                            <tr>
+                                <td>Clases grupales</td>
+                                <td><i class="fas fa-times text-error"></i></td>
+                                <td>Ilimitadas</td>
+                                <td>Ilimitadas + VIP</td>
+                            </tr>
+                            <tr>
+                                <td>Entrenador personal</td>
+                                <td><i class="fas fa-times text-error"></i></td>
+                                <td>2 sesiones/mes</td>
+                                <td>Ilimitado</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluación nutricional</td>
+                                <td><i class="fas fa-times text-error"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Zona de recuperación</td>
+                                <td><i class="fas fa-times text-error"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td>Premium + Terapias</td>
+                            </tr>
+                            <tr>
+                                <td>Análisis corporal</td>
+                                <td><i class="fas fa-times text-error"></i></td>
+                                <td><i class="fas fa-times text-error"></i></td>
+                                <td>Mensual</td>
+                            </tr>
+                            <tr>
+                                <td>Suplementación</td>
+                                <td><i class="fas fa-times text-error"></i></td>
+                                <td><i class="fas fa-times text-error"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios adicionales -->
+    <section id="servicios-adicionales" class="additional-services">
+        <div class="container">
+            <h2>Servicios Adicionales</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Entrenamiento Personal</h3>
+                    <p>Sesiones individualizadas con entrenador certificado</p>
+                    <div class="service-price">
+                        <span class="price">$25</span>
+                        <span class="period">/ sesión</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Consulta Nutricional</h3>
+                    <p>Plan alimentario personalizado con nutricionista</p>
+                    <div class="service-price">
+                        <span class="price">$40</span>
+                        <span class="period">/ consulta</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Masaje Deportivo</h3>
+                    <p>Terapia de recuperación y relajación muscular</p>
+                    <div class="service-price">
+                        <span class="price">$35</span>
+                        <span class="period">/ sesión</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análisis Corporal</h3>
+                    <p>Composición corporal detallada con InBody</p>
+                    <div class="service-price">
+                        <span class="price">$15</span>
+                        <span class="period">/ análisis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Puedo cambiar de plan en cualquier momento?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, puedes cambiar tu plan en cualquier momento. Los cambios se aplicarán en tu próximo período de facturación.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Hay permanencia mínima?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No hay permanencia mínima. Puedes cancelar tu membresía en cualquier momento con 30 días de anticipación.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Ofrecen clases gratuitas de prueba?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>¡Por supuesto! Ofrecemos una clase gratuita para que conozcas nuestras instalaciones y métodos de entrenamiento.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué incluye la evaluación nutricional?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Incluye análisis de hábitos alimentarios, plan nutricional personalizado y seguimiento mensual con nuestro nutricionista certificado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-dumbbell"></i> FitGym</h3>
+                    <p>Tu gimnasio de confianza para alcanzar todos tus objetivos fitness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="clases.html">Clases</a></li>
+                        <li><a href="entrenadores.html">Entrenadores</a></li>
+                        <li><a href="precios.html">Precios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Horarios</h4>
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span>Lun - Vie:</span>
+                            <span>6:00 - 23:00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span>Sábados:</span>
+                            <span>8:00 - 20:00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span>Domingos:</span>
+                            <span>9:00 - 18:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Suscríbete para recibir ofertas especiales y tips de entrenamiento.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitGym. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="precios.js"></script>
+</body>
+</html>

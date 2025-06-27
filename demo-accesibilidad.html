@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo de Accesibilidad - FitGym</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="advanced-effects.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .demo-section {
+            padding: 3rem 0;
+            border-bottom: 2px solid var(--primary-alpha);
+            margin-bottom: 2rem;
+        }
+        
+        .demo-title {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .demo-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .demo-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .status-indicator {
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-md);
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        .status-success {
+            background: rgba(40, 167, 69, 0.1);
+            color: var(--success-color-high);
+            border: 1px solid var(--success-color-high);
+        }
+        
+        .status-warning {
+            background: rgba(200, 118, 0, 0.1);
+            color: var(--warning-color-high);
+            border: 1px solid var(--warning-color-high);
+        }
+        
+        .keyboard-demo {
+            border: 2px dashed var(--primary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: var(--border-radius-md);
+        }
+        
+        .aria-live-demo {
+            min-height: 100px;
+            background: rgba(255, 107, 53, 0.05);
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-radius-md);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip links -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Header simplificado -->
+    <header class="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Navegación principal">
+            <div class="container">
+                <div class="logo">
+                    <h2>
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" 
+                             aria-label="Logo FitGym" role="img">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" 
+                                  stroke="currentColor" stroke-width="2" fill="currentColor"/>
+                        </svg>
+                        FitGym - Demo Accesibilidad
+                    </h2>
+                </div>
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="#contraste" class="nav-link" role="menuitem">Contraste</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#teclado" class="nav-link" role="menuitem">Teclado</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#aria" class="nav-link" role="menuitem">ARIA</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#panel" class="nav-link" role="menuitem">Panel</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Panel de Accesibilidad -->
+    <button class="accessibility-toggle" id="accessibilityToggle" aria-label="Abrir panel de accesibilidad" aria-expanded="false">
+        <i class="fas fa-universal-access" aria-hidden="true"></i>
+    </button>
+
+    <div class="accessibility-panel" id="accessibilityPanel" role="dialog" aria-labelledby="accessibility-title" aria-hidden="true">
+        <h3 id="accessibility-title">Opciones de Accesibilidad</h3>
+        <div class="accessibility-controls">
+            <button id="toggleHighContrast" type="button" aria-pressed="false">
+                <i class="fas fa-adjust" aria-hidden="true"></i>
+                Alto Contraste
+            </button>
+            <button id="toggleReduceMotion" type="button" aria-pressed="false">
+                <i class="fas fa-pause" aria-hidden="true"></i>
+                Reducir Animaciones
+            </button>
+            <button id="increaseFontSize" type="button">
+                <i class="fas fa-text-height" aria-hidden="true"></i>
+                Aumentar Texto
+            </button>
+            <button id="decreaseFontSize" type="button">
+                <i class="fas fa-compress-alt" aria-hidden="true"></i>
+                Reducir Texto
+            </button>
+            <button id="resetAccessibility" type="button">
+                <i class="fas fa-undo" aria-hidden="true"></i>
+                Restablecer
+            </button>
+        </div>
+        <button class="accessibility-close" id="accessibilityClose" aria-label="Cerrar panel de accesibilidad">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- Contenido principal -->
+    <main id="main-content">
+        <div class="container">
+            <h1 class="text-center" style="margin: 3rem 0; color: var(--primary-color);">
+                Demostración de Accesibilidad FitGym
+            </h1>
+            
+            <!-- Sección de Contraste -->
+            <section id="contraste" class="demo-section">
+                <h2 class="demo-title">🎯 Contraste de Colores (AA/AAA)</h2>
+                
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3>Enlaces con Alto Contraste</h3>
+                        <p>Enlaces diseñados con contraste mínimo de 4.5:1</p>
+                        <ul>
+                            <li><a href="#test">Enlace normal (7.8:1)</a></li>
+                            <li><a href="#test" style="color: var(--link-hover);">Enlace hover (9.3:1)</a></li>
+                            <li><a href="#test" style="color: var(--link-visited);">Enlace visitado (6.2:1)</a></li>
+                        </ul>
+                        <div class="status-indicator status-success">
+                            ✅ Cumple estándares AAA
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <h3>Botones Accesibles</h3>
+                        <p>Botones con contraste optimizado</p>
+                        <div class="demo-controls">
+                            <button class="btn btn-primary">Primario (8.2:1)</button>
+                            <button class="btn btn-secondary">Secundario</button>
+                        </div>
+                        <div class="status-indicator status-success">
+                            ✅ Contraste AA/AAA
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <h3>Estados de Error</h3>
+                        <p>Mensajes con alto contraste para mejor legibilidad</p>
+                        <div class="error-message">⚠ Error con contraste 7.2:1</div>
+                        <div style="color: var(--success-color-high); margin-top: 0.5rem;">
+                            ✅ Éxito con contraste 7.1:1
+                        </div>
+                        <div class="status-indicator status-success">
+                            ✅ Contraste AAA
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Navegación por Teclado -->
+            <section id="teclado" class="demo-section">
+                <h2 class="demo-title">⌨️ Navegación por Teclado</h2>
+                
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3>Estados de Focus Visibles</h3>
+                        <p>Usa Tab para navegar por estos elementos:</p>
+                        <div class="keyboard-demo">
+                            <button class="btn btn-primary" style="margin: 0.5rem;">Botón 1</button>
+                            <button class="btn btn-secondary" style="margin: 0.5rem;">Botón 2</button>
+                            <a href="#test" style="margin: 0.5rem; display: inline-block;">Enlace</a>
+                            <input type="text" placeholder="Campo de texto" style="margin: 0.5rem;">
+                        </div>
+                        <div class="status-indicator status-success">
+                            ✅ Focus visible con outline y box-shadow
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <h3>Tarjetas Navegables</h3>
+                        <p>Tarjetas con tabindex y eventos de teclado:</p>
+                        <div class="class-card" tabindex="0" role="button" style="margin-top: 1rem;">
+                            <div class="card-content">
+                                <h4>Tarjeta de Ejemplo</h4>
+                                <p>Presiona Enter o Espacio para activar</p>
+                            </div>
+                        </div>
+                        <div class="status-indicator status-success">
+                            ✅ Navegable por teclado
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <h3>Shortcuts de Teclado</h3>
+                        <p>Atajos disponibles:</p>
+                        <ul>
+                            <li><strong>Tab:</strong> Navegar hacia adelante</li>
+                            <li><strong>Shift + Tab:</strong> Navegar hacia atrás</li>
+                            <li><strong>Enter/Espacio:</strong> Activar elemento</li>
+                            <li><strong>Escape:</strong> Cerrar modales/panels</li>
+                        </ul>
+                        <div class="status-indicator status-success">
+                            ✅ Shortcuts estándar implementados
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección ARIA -->
+            <section id="aria" class="demo-section">
+                <h2 class="demo-title">🔊 ARIA y Lectores de Pantalla</h2>
+                
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3>Regiones ARIA Live</h3>
+                        <p>Anuncios dinámicos para lectores de pantalla:</p>
+                        <div class="demo-controls">
+                            <button onclick="announceMessage('¡Mensaje polite!', 'polite')" class="btn btn-primary">
+                                Anuncio Polite
+                            </button>
+                            <button onclick="announceMessage('¡Alerta importante!', 'assertive')" class="btn btn-secondary">
+                                Anuncio Assertive
+                            </button>
+                        </div>
+                        <div class="aria-live-demo">
+                            <div aria-live="polite" id="livePolite" class="sr-only"></div>
+                            <div aria-live="assertive" id="liveAssertive" class="sr-only"></div>
+                            <div id="messageDisplay">Los mensajes aparecerán aquí...</div>
+                        </div>
+                        <div class="status-indicator status-success">
+                            ✅ ARIA live regions implementadas
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <h3>Estados ARIA</h3>
+                        <p>Elementos con estados dinámicos:</p>
+                        <button id="toggleButton" 
+                                aria-pressed="false" 
+                                onclick="toggleAriaState()"
+                                class="btn btn-primary">
+                            <span id="toggleText">Activar</span>
+                        </button>
+                        <div style="margin-top: 1rem;">
+                            <strong>Estado actual:</strong> <span id="stateDisplay">Desactivado</span>
+                        </div>
+                        <div class="status-indicator status-success">
+                            ✅ aria-pressed dinámico
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <h3>Descripciones Ocultas</h3>
+                        <p>Contexto adicional para screen readers:</p>
+                        <button class="btn btn-primary" aria-describedby="button-help">
+                            Botón con Ayuda
+                        </button>
+                        <div id="button-help" class="sr-only">
+                            Este botón realiza una acción importante y abrirá un modal de confirmación
+                        </div>
+                        <div class="status-indicator status-success">
+                            ✅ Descripciones accesibles con sr-only
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección del Panel -->
+            <section id="panel" class="demo-section">
+                <h2 class="demo-title">🛠️ Panel de Accesibilidad</h2>
+                
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3>Controles Disponibles</h3>
+                        <p>El panel flotante incluye:</p>
+                        <ul>
+                            <li>🎨 Toggle de alto contraste</li>
+                            <li>⏸️ Reducir animaciones</li>
+                            <li>📝 Aumentar/reducir texto</li>
+                            <li>🔄 Restablecer configuraciones</li>
+                        </ul>
+                        <div class="status-indicator status-success">
+                            ✅ Panel completamente funcional
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <h3>Persistencia</h3>
+                        <p>Las configuraciones se guardan en:</p>
+                        <ul>
+                            <li>💾 LocalStorage del navegador</li>
+                            <li>🔄 Se cargan automáticamente</li>
+                            <li>🎯 Detección de preferencias del sistema</li>
+                        </ul>
+                        <div class="status-indicator status-success">
+                            ✅ Configuraciones persistentes
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <h3>Instrucciones de Uso</h3>
+                        <ol>
+                            <li>Haz clic en el botón flotante ♿</li>
+                            <li>Explora los controles disponibles</li>
+                            <li>Observa los cambios en tiempo real</li>
+                            <li>Las configuraciones se guardan automáticamente</li>
+                        </ol>
+                        <div class="status-indicator status-warning">
+                            ℹ️ Haz clic en el botón ♿ para probar
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Región para anuncios -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="screenReaderAnnouncements"></div>
+
+    <script src="accessibility.js"></script>
+    <script>
+        // Funciones de demostración
+        function announceMessage(message, type) {
+            const liveRegion = document.getElementById(type === 'assertive' ? 'liveAssertive' : 'livePolite');
+            const display = document.getElementById('messageDisplay');
+            
+            liveRegion.textContent = message;
+            display.textContent = `${type.toUpperCase()}: ${message}`;
+            
+            // Limpiar después de 3 segundos
+            setTimeout(() => {
+                liveRegion.textContent = '';
+                display.textContent = 'Los mensajes aparecerán aquí...';
+            }, 3000);
+        }
+        
+        function toggleAriaState() {
+            const button = document.getElementById('toggleButton');
+            const text = document.getElementById('toggleText');
+            const display = document.getElementById('stateDisplay');
+            
+            const isPressed = button.getAttribute('aria-pressed') === 'true';
+            const newState = !isPressed;
+            
+            button.setAttribute('aria-pressed', newState.toString());
+            text.textContent = newState ? 'Desactivar' : 'Activar';
+            display.textContent = newState ? 'Activado' : 'Desactivado';
+            
+            // Anunciar cambio
+            if (window.accessibilityManager) {
+                window.accessibilityManager.announce(`Estado ${newState ? 'activado' : 'desactivado'}`);
+            }
+        }
+
+        // Mejorar navegación por teclado en tarjetas
+        document.querySelectorAll('.class-card[tabindex]').forEach(card => {
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.transform = '';
+                        alert('¡Tarjeta activada por teclado!');
+                    }, 150);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,690 @@
+/* ========================================================================
+   ADVANCED-EFFECTS.CSS - FitGym Advanced CSS Techniques
+   Técnicas avanzadas: Custom Properties, Clip-path, Scroll Snap, Dark Mode
+   ======================================================================== */
+
+/* ========== CUSTOM PROPERTIES GLOBALES EXTENDIDAS ========== */
+:root {
+    /* Animaciones avanzadas */
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+    --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Duraciones */
+    --duration-fast: 0.2s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+    --duration-very-slow: 1s;
+    
+    /* Efectos especiales */
+    --blur-sm: blur(4px);
+    --blur-md: blur(8px);
+    --blur-lg: blur(16px);
+    
+    /* Gradientes avanzados */
+    --gradient-rainbow: linear-gradient(45deg, #ff6b35, #f7931e, #ffd700, #32cd32, #1e90ff, #9370db);
+    --gradient-neon: linear-gradient(45deg, #ff006e, #fb5607, #ffbe0b, #8338ec);
+    --gradient-warm: linear-gradient(135deg, #ff9a8b, #a8caba);
+    --gradient-cool: linear-gradient(135deg, #667eea, #764ba2);
+    
+    /* Sombras neón */
+    --neon-primary: 0 0 5px var(--primary-color), 0 0 20px var(--primary-color), 0 0 35px var(--primary-color);
+    --neon-secondary: 0 0 5px var(--secondary-color), 0 0 20px var(--secondary-color);
+}
+
+/* ========== CLIP-PATH LIBRARY ========== */
+.clip-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.clip-parallelogram {
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
+
+.clip-trapezoid {
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+.clip-rhombus {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.clip-pentagon {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.clip-hexagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+}
+
+.clip-heptagon {
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+}
+
+.clip-octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.clip-star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.clip-cross {
+    clip-path: polygon(20% 0%, 80% 0%, 80% 20%, 100% 20%, 100% 80%, 80% 80%, 80% 100%, 20% 100%, 20% 80%, 0% 80%, 0% 20%, 20% 20%);
+}
+
+/* ========== ANIMACIONES DE CLIP-PATH ========== */
+.clip-morph {
+    animation: clipMorph 4s ease-in-out infinite;
+}
+
+@keyframes clipMorph {
+    0%, 100% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    25% {
+        clip-path: polygon(0% 0%, 100% 0%, 90% 90%, 10% 100%);
+    }
+    50% {
+        clip-path: polygon(10% 10%, 90% 0%, 100% 90%, 0% 100%);
+    }
+    75% {
+        clip-path: polygon(0% 10%, 100% 10%, 90% 100%, 10% 90%);
+    }
+}
+
+/* ========== SCROLL SNAP AVANZADO ========== */
+.scroll-snap-x {
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    display: flex;
+}
+
+.scroll-snap-x > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+.scroll-snap-y {
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.scroll-snap-y > * {
+    scroll-snap-align: start;
+    min-height: 100vh;
+}
+
+.scroll-snap-both {
+    scroll-snap-type: both mandatory;
+    overflow: auto;
+}
+
+.scroll-snap-proximity {
+    scroll-snap-type: y proximity;
+}
+
+.scroll-snap-stop {
+    scroll-snap-stop: always;
+}
+
+/* ========== MASKING AVANZADO ========== */
+.mask-fade-horizontal {
+    mask: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.mask-fade-vertical {
+    mask: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    -webkit-mask: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.mask-radial-fade {
+    mask: radial-gradient(circle at center, black 60%, transparent 80%);
+    -webkit-mask: radial-gradient(circle at center, black 60%, transparent 80%);
+}
+
+.mask-text {
+    mask: url(#text-mask);
+    -webkit-mask: url(#text-mask);
+}
+
+/* ========== GLASSMORPHISM AVANZADO ========== */
+.glass-light {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-medium {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-heavy {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(16px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+[data-theme="dark"] .glass-light {
+    background: rgba(45, 45, 45, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .glass-medium {
+    background: rgba(45, 45, 45, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .glass-heavy {
+    background: rgba(45, 45, 45, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ========== EFECTOS NEÓN ========== */
+.neon-glow {
+    box-shadow: var(--neon-primary);
+    transition: box-shadow var(--duration-normal) ease;
+}
+
+.neon-glow:hover {
+    box-shadow: 
+        var(--neon-primary),
+        0 0 50px var(--primary-color),
+        0 0 75px var(--primary-color);
+}
+
+.neon-text {
+    color: var(--primary-color);
+    text-shadow: var(--neon-primary);
+    animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+    from {
+        text-shadow: var(--neon-primary);
+    }
+    to {
+        text-shadow: 
+            var(--neon-primary),
+            0 0 40px var(--primary-color),
+            0 0 60px var(--primary-color);
+    }
+}
+
+/* ========== TRANSFORMACIONES 3D ========== */
+.flip-3d {
+    transform-style: preserve-3d;
+    transition: transform var(--duration-slow) var(--ease-in-out-expo);
+}
+
+.flip-3d:hover {
+    transform: rotateY(180deg);
+}
+
+.tilt-3d {
+    transform-style: preserve-3d;
+    transition: transform var(--duration-normal) ease;
+}
+
+.tilt-3d:hover {
+    transform: perspective(1000px) rotateX(10deg) rotateY(10deg) translateZ(20px);
+}
+
+.float-3d {
+    animation: float3D 3s ease-in-out infinite;
+}
+
+@keyframes float3D {
+    0%, 100% {
+        transform: translateY(0) rotateX(0);
+    }
+    50% {
+        transform: translateY(-10px) rotateX(5deg);
+    }
+}
+
+/* ========== GRADIENTES ANIMADOS ========== */
+.gradient-animated {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    background-size: 300% 300%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ========== BORDES CREATIVOS ========== */
+.border-gradient {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+}
+
+.border-gradient::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.border-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.border-animated::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, var(--primary-color), transparent);
+    animation: rotateBorderFull 2s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotateBorderFull {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========== EFECTOS DE PARTÍCULAS CSS ========== */
+.particles {
+    position: relative;
+    overflow: hidden;
+}
+
+.particles::before,
+.particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    animation: particleFloat 4s ease-in-out infinite;
+}
+
+.particles::before {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.particles::after {
+    top: 60%;
+    right: 30%;
+    animation-delay: 2s;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-30px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* ========== SCROLL TRIGGERED ANIMATIONS ========== */
+.scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all var(--duration-slow) var(--ease-in-out-expo);
+}
+
+.scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all var(--duration-slow) var(--ease-in-out-expo);
+}
+
+.scroll-reveal-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all var(--duration-slow) var(--ease-in-out-expo);
+}
+
+.scroll-reveal-down {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all var(--duration-slow) var(--ease-in-out-expo);
+}
+
+.scroll-reveal-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all var(--duration-slow) var(--ease-in-out-expo);
+}
+
+.scroll-reveal-rotate {
+    opacity: 0;
+    transform: rotate(45deg);
+    transition: all var(--duration-slow) var(--ease-in-out-expo);
+}
+
+/* Estados activos */
+.scroll-reveal-left.revealed,
+.scroll-reveal-right.revealed,
+.scroll-reveal-up.revealed,
+.scroll-reveal-down.revealed {
+    opacity: 1;
+    transform: translate(0);
+}
+
+.scroll-reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.scroll-reveal-rotate.revealed {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* ========== UTILIDADES RESPONSIVE ========== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .clip-morph {
+        animation: none;
+    }
+    
+    .gradient-animated {
+        animation: none;
+        background: var(--primary-color);
+    }
+    
+    .neon-glow,
+    .neon-text {
+        animation: none;
+        box-shadow: none;
+        text-shadow: none;
+    }
+}
+
+/* ========== CUSTOM SCROLL INDICATORS ========== */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color) 0%, var(--primary-color) var(--scroll-percent, 0%), transparent var(--scroll-percent, 0%));
+    z-index: var(--z-fixed);
+    transition: opacity var(--duration-normal) ease;
+}
+
+/* ========== TEMA ESPECÍFICO PARA MODO OSCURO ========== */
+[data-theme="dark"] {
+    --neon-primary: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+}
+
+[data-theme="dark"] .border-gradient {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .particles::before,
+[data-theme="dark"] .particles::after {
+    background: var(--primary-light);
+}
+
+/* ========== MICRO-INTERACCIONES AVANZADAS ========== */
+
+/* Efecto Ripple para botones */
+.ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+.ripple:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active:before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Efecto Magnetism - Atracción del cursor */
+.magnetic {
+    transition: transform var(--duration-normal) var(--ease-in-out-expo);
+    cursor: pointer;
+}
+
+.magnetic:hover {
+    transform: scale(1.05);
+}
+
+/* Efecto Shimmer */
+.shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Efecto Pulse avanzado */
+.pulse-advanced {
+    animation: pulseAdvanced 2s infinite;
+}
+
+@keyframes pulseAdvanced {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 20px rgba(255, 107, 53, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+    }
+}
+
+/* Efecto Float/Hover 3D */
+.float-3d {
+    transition: all var(--duration-normal) var(--ease-in-out-quart);
+    transform-style: preserve-3d;
+}
+
+.float-3d:hover {
+    transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto Tilt 3D */
+.tilt-3d {
+    transition: transform var(--duration-normal) ease-out;
+    transform-style: preserve-3d;
+}
+
+.tilt-3d:hover {
+    transform: perspective(1000px) rotateX(10deg) rotateY(10deg) scale(1.02);
+}
+
+/* Micro-interacción para enlaces */
+.link-underline {
+    position: relative;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-primary);
+    transform: translateX(-100%);
+    transition: transform var(--duration-normal) var(--ease-in-out-expo);
+}
+
+.link-underline:hover::after {
+    transform: translateX(0);
+}
+
+/* Botón con efecto de carga */
+.btn-loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-loading.loading {
+    color: transparent;
+    pointer-events: none;
+}
+
+.btn-loading.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 1s linear infinite;
+}
+
+/* Efecto de partículas al hover */
+.particle-effect {
+    position: relative;
+    overflow: visible;
+}
+
+.particle-effect::before {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 0;
+    opacity: 0;
+    transform: scale(0);
+    transition: all var(--duration-normal) var(--ease-bounce);
+}
+
+.particle-effect:hover::before {
+    font-size: 16px;
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+}
+
+/* ========== EFECTOS DE GLASSMORPHISM AVANZADOS ========== */
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: all var(--duration-normal) var(--ease-in-out-quart);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    transform: translateY(-5px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.glass-overlay {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+}
+
+/* ========== MORPHING Y TRANSFORMACIONES ========== */
+.morph-circle-to-square {
+    border-radius: 50%;
+    transition: border-radius var(--duration-slow) var(--ease-in-out-expo);
+}
+
+.morph-circle-to-square:hover {
+    border-radius: 10px;
+}
+
+.morph-size {
+    transition: all var(--duration-normal) var(--ease-bounce);
+}
+
+.morph-size:hover {
+    transform: scale(1.1) rotate(5deg);
+}

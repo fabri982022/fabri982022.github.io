@@ -1,0 +1,716 @@
+/* Estilos específicos para la página de entrenadores */
+
+/* Hero section */
+.trainers-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--white);
+    padding: 8rem 0 4rem;
+    margin-top: 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.trainers-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></svg>');
+    animation: float 20s ease-in-out infinite;
+}
+
+.trainers-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: slideInUp 1s ease;
+}
+
+.trainers-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    animation: slideInUp 1s ease 0.2s both;
+}
+
+/* Filtros de entrenadores */
+.trainer-filters {
+    padding: 3rem 0;
+    background: var(--accent-color);
+}
+
+.trainer-filters h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--white);
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.filter-btn:hover::before {
+    left: 100%;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+/* Grid de entrenadores */
+.trainers-section {
+    padding: 5rem 0;
+}
+
+.trainers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    perspective: 1000px;
+}
+
+/* Tarjetas con efecto flip */
+.trainer-card {
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.trainer-card:hover {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-front {
+    background: var(--white);
+}
+
+.card-back {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    transform: rotateY(180deg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Lado frontal de la tarjeta */
+.trainer-image {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+}
+
+.trainer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.trainer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.trainer-card:hover .trainer-overlay {
+    opacity: 1;
+}
+
+.trainer-card:hover .trainer-image img {
+    transform: scale(1.1);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.trainer-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.trainer-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.trainer-title {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Sistema de rating con estrellas animadas */
+.rating-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.stars i {
+    color: #ffd700;
+    font-size: 1.2rem;
+    animation: starPulse 2s ease-in-out infinite;
+}
+
+.stars i:nth-child(1) { animation-delay: 0s; }
+.stars i:nth-child(2) { animation-delay: 0.2s; }
+.stars i:nth-child(3) { animation-delay: 0.4s; }
+.stars i:nth-child(4) { animation-delay: 0.6s; }
+.stars i:nth-child(5) { animation-delay: 0.8s; }
+
+.rating-value {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.specialties {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.specialty {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Lado trasero de la tarjeta */
+.trainer-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.trainer-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.experience {
+    text-align: center;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.bio {
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+/* Barras de habilidades animadas */
+.skills {
+    margin-bottom: 1.5rem;
+}
+
+.skills h4 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.skill-item {
+    margin-bottom: 1rem;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.skill-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #00f2fe, #4facfe);
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s ease-out;
+    position: relative;
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Animación cuando la tarjeta se voltea */
+.trainer-card:hover .skill-progress {
+    animation: fillProgress 1.5s ease-out forwards;
+}
+
+.contact-info {
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.btn-contact {
+    background: var(--white);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-contact:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estadísticas del equipo */
+.team-stats {
+    padding: 4rem 0;
+    background: var(--secondary-color);
+    color: orange;
+}
+
+.team-stats h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: orange;
+}
+
+.team-stats .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.team-stats .stat-item {
+    padding: 2rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.team-stats .stat-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.team-stats .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.team-stats .stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Filtrado de entrenadores */
+.trainer-card {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.trainer-card.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+/* Animaciones */
+@keyframes starPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes fillProgress {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--progress-width, 0%);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects adicionales */
+.trainer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), transparent, var(--primary-color));
+    opacity: 0;
+    z-index: -1;
+    border-radius: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.trainer-card:hover::before {
+    opacity: 0.1;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .trainers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .trainers-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .trainers-hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .trainers-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .trainer-card {
+        height: 450px;
+    }
+
+    .trainer-image {
+        height: 300px;
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-btn {
+        width: 80%;
+        max-width: 250px;
+        justify-content: center;
+    }
+
+    .card-back {
+        padding: 1.5rem;
+    }
+
+    .skills h4 {
+        font-size: 1rem;
+    }
+
+    .skill-info {
+        font-size: 0.8rem;
+    }
+
+    .contact-info p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trainers-hero h1 {
+        font-size: 2rem;
+    }
+
+    .trainer-card {
+        height: 400px;
+    }
+
+    .trainer-image {
+        height: 250px;
+    }
+
+    .trainer-info {
+        padding: 1rem;
+    }
+
+    .trainer-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .rating-stars {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .specialties {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-back {
+        padding: 1rem;
+    }
+
+    .bio {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .team-stats .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-stats .stat-item {
+        padding: 1.5rem;
+    }
+
+    .stat-icon {
+        font-size: 2rem;
+    }
+
+    .team-stats .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* Mejoras de accesibilidad */
+.filter-btn:focus,
+.btn-contact:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.trainer-card:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 5px;
+}
+
+/* Efectos de carga */
+.trainer-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.trainer-card:nth-child(1) { animation-delay: 0.1s; }
+.trainer-card:nth-child(2) { animation-delay: 0.2s; }
+.trainer-card:nth-child(3) { animation-delay: 0.3s; }
+.trainer-card:nth-child(4) { animation-delay: 0.4s; }
+.trainer-card:nth-child(5) { animation-delay: 0.5s; }
+.trainer-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto hover en estrellas individual */
+.stars i:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 5px #ffd700);
+}
+
+/* Indicador de flip */
+.trainer-card::after {
+    content: '↻';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    color: var(--white);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.trainer-card:hover::after {
+    opacity: 1;
+}
+
+/* Pulso en botón de contacto */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.btn-contact:hover {
+    animation: pulse 1.5s infinite;
+}

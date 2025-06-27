@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitGym - Demo de Efectos Avanzados</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="advanced-effects.css">
+    <link rel="stylesheet" href="animations.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .demo-section {
+            background: var(--bg-primary);
+            padding: 3rem;
+            margin: 2rem 0;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .demo-item {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-md);
+            text-align: center;
+        }
+        
+        .spinner-container {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="particles-enabled">
+    <!-- Toggle de Modo Oscuro -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo oscuro">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container">
+        <!-- Sección de Micro-interacciones -->
+        <section class="demo-section reveal-bottom">
+            <h2 class="text-gradient text-shine">🎯 Micro-interacciones Avanzadas</h2>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>Efecto Ripple</h3>
+                    <button class="btn btn-primary ripple">Click para Ripple</button>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Magnetismo</h3>
+                    <div class="magnetic glass-card" style="width: 100px; height: 100px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-magnet" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Shimmer</h3>
+                    <div class="shimmer" style="font-size: 1.5rem; font-weight: bold;">Texto Brillante</div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Tilt 3D</h3>
+                    <div class="tilt-3d glass-card" style="width: 120px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-cube" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Float 3D</h3>
+                    <div class="float-3d glass-card" style="width: 120px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-rocket" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Pulse Avanzado</h3>
+                    <div class="pulse-advanced" style="width: 60px; height: 60px; margin: 0 auto; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-heart" style="color: white;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Animaciones SVG -->
+        <section class="demo-section reveal-scale">
+            <h2 class="text-gradient text-shine">🎨 Animaciones SVG</h2>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>Logo con Heartbeat</h3>
+                    <svg class="svg-heartbeat" width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" 
+                              stroke="var(--primary-color)" stroke-width="2" fill="var(--primary-color)"/>
+                    </svg>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>SVG Draw</h3>
+                    <svg width="100" height="100" viewBox="0 0 100 100">
+                        <circle class="svg-draw" cx="50" cy="50" r="40" stroke="var(--primary-color)" stroke-width="3" fill="none"/>
+                    </svg>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Iconos Interactivos</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <i class="fas fa-star icon-interactive" style="font-size: 2rem;"></i>
+                        <i class="fas fa-fire icon-interactive" style="font-size: 2rem;"></i>
+                        <i class="fas fa-bolt icon-interactive" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Icono Bounce</h3>
+                    <i class="fas fa-basketball-ball icon-bounce" style="font-size: 3rem; color: var(--primary-color);"></i>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Icono Rotate 3D</h3>
+                    <i class="fas fa-sync-alt icon-rotate-3d" style="font-size: 3rem; color: var(--primary-color);"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contadores -->
+        <section class="demo-section reveal-left">
+            <h2 class="text-gradient text-shine">🔢 Contadores Animados</h2>
+            
+            <div class="demo-grid">
+                <div class="demo-item glass-card">
+                    <h3>Contador Rolling</h3>
+                    <div class="counter-number rolling-counter" data-target="1234" data-suffix="+" style="font-size: 2.5rem;">0</div>
+                </div>
+                
+                <div class="demo-item glass-card">
+                    <h3>Contador Typewriter</h3>
+                    <div class="counter-number typewriter-counter" data-target="567" data-suffix=" puntos" style="font-size: 2rem;">0</div>
+                </div>
+                
+                <div class="demo-item glass-card">
+                    <h3>Contador Básico</h3>
+                    <div class="counter-number" data-target="89" data-suffix="%" style="font-size: 2.5rem;">0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Spinners -->
+        <section class="demo-section reveal-scale">
+            <h2 class="text-gradient text-shine">⏳ Spinners de Carga</h2>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>Spinner Básico</h3>
+                    <div class="spinner-container">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Spinner Pulse</h3>
+                    <div class="spinner-container">
+                        <div class="spinner-pulse"></div>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Spinner Dots</h3>
+                    <div class="spinner-container">
+                        <div class="spinner-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Spinner Waves</h3>
+                    <div class="spinner-container">
+                        <div class="spinner-waves">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Spinner Trail</h3>
+                    <div class="spinner-container">
+                        <div class="spinner-trail"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Botones con Loading -->
+        <section class="demo-section reveal-bottom">
+            <h2 class="text-gradient text-shine">🔘 Botones con Loading</h2>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>Botón con Ripple + Loading</h3>
+                    <button class="btn btn-primary ripple btn-loading magnetic">
+                        Cargar Datos
+                    </button>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Botón Glassmorphism</h3>
+                    <button class="btn btn-secondary glass-card ripple btn-loading">
+                        Procesar
+                    </button>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Botón con Partículas</h3>
+                    <button class="btn btn-primary particle-effect ripple btn-loading">
+                        ✨ Mágico
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Efectos Especiales -->
+        <section class="demo-section reveal-scale">
+            <h2 class="text-gradient text-shine">✨ Efectos Especiales</h2>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>Morph Circle to Square</h3>
+                    <div class="morph-circle-to-square" style="width: 80px; height: 80px; background: var(--gradient-primary); margin: 0 auto;"></div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Animated Border</h3>
+                    <div class="animated-border" style="width: 120px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <span>Bordered</span>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Text Gradient</h3>
+                    <div class="text-gradient" style="font-size: 1.5rem; font-weight: bold;">Gradiente</div>
+                </div>
+                
+                <div class="demo-item">
+                    <h3>Clip Path Effects</h3>
+                    <div style="display: flex; gap: 10px; justify-content: center;">
+                        <div class="clip-triangle" style="width: 40px; height: 40px; background: var(--primary-color);"></div>
+                        <div class="clip-rhombus" style="width: 40px; height: 40px; background: var(--secondary-color);"></div>
+                        <div class="clip-hexagon" style="width: 40px; height: 40px; background: var(--primary-color);"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Botón de regreso -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="btn btn-primary ripple magnetic shimmer">
+                <i class="fas fa-home"></i> Volver al Inicio
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Inicializar demo específicos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simular clicks automáticos para demostración
+            const buttons = document.querySelectorAll('.btn-loading');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (this.classList.contains('loading')) return;
+                    
+                    this.classList.add('loading');
+                    setTimeout(() => {
+                        this.classList.remove('loading');
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

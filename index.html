@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FitGym - Tu gimnasio de confianza. Clases de crossfit, yoga, spinning y más. Entrenadores expertos y instalaciones modernas.">
+    <meta name="keywords" content="gimnasio, fitness, crossfit, yoga, spinning, entrenamiento personal, salud">
+    <title>FitGym - Tu Gimnasio de Confianza</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Header con mega-menú -->
+    <header class="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Navegación principal">
+            <div class="container">
+                <div class="logo magnetic">
+                    <h2>
+                        <svg class="svg-heartbeat" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" 
+                             aria-label="Logo FitGym - Corazón" role="img">
+                            <path class="svg-draw" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" 
+                                  stroke="currentColor" stroke-width="2" fill="currentColor"/>
+                        </svg>
+                        FitGym
+                    </h2>
+                </div>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="#home" class="nav-link magnetic link-underline" role="menuitem" aria-current="page">Inicio</a>
+                    </li>
+                    <li class="nav-item mega-menu" role="none">
+                        <a href="clases.html" class="nav-link magnetic link-underline" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            Clases 
+                            <i class="fas fa-chevron-down icon-interactive" aria-hidden="true"></i>
+                        </a>
+                        <div class="mega-menu-content" role="menu" aria-label="Menú de clases">
+                            <div class="mega-menu-column">
+                                <h3>Cardio</h3>
+                                <a href="clases.html#spinning" role="menuitem">Spinning</a>
+                                <a href="clases.html#zumba" role="menuitem">Zumba</a>
+                                <a href="clases.html#aerobicos" role="menuitem">Aeróbicos</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3>Fuerza</h3>
+                                <a href="clases.html#crossfit" role="menuitem">Crossfit</a>
+                                <a href="clases.html#funcional" role="menuitem">Funcional</a>
+                                <a href="clases.html#pesas" role="menuitem">Pesas</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3>Relajación</h3>
+                                <a href="clases.html#yoga" role="menuitem">Yoga</a>
+                                <a href="clases.html#pilates" role="menuitem">Pilates</a>
+                                <a href="clases.html#stretching" role="menuitem">Stretching</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item mega-menu" role="none">
+                        <a href="entrenadores.html" class="nav-link magnetic link-underline" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            Entrenadores 
+                            <i class="fas fa-chevron-down icon-interactive" aria-hidden="true"></i>
+                        </a>
+                        <div class="mega-menu-content" role="menu" aria-label="Menú de entrenadores">
+                            <div class="mega-menu-column">
+                                <h3>Especialistas</h3>
+                                <a href="entrenadores.html#personal-trainers" role="menuitem">Personal Trainers</a>
+                                <a href="entrenadores.html#instructores" role="menuitem">Instructores de Grupo</a>
+                                <a href="entrenadores.html#nutricionistas" role="menuitem">Nutricionistas</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item mega-menu" role="none">
+                        <a href="precios.html" class="nav-link magnetic link-underline" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            Precios 
+                            <i class="fas fa-chevron-down icon-interactive" aria-hidden="true"></i>
+                        </a>
+                        <div class="mega-menu-content" role="menu" aria-label="Menú de precios">
+                            <div class="mega-menu-column">
+                                <h3>Membresías</h3>
+                                <a href="precios.html#mensual" role="menuitem">Mensual</a>
+                                <a href="precios.html#trimestral" role="menuitem">Trimestral</a>
+                                <a href="precios.html#anual" role="menuitem">Anual</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3>Servicios</h3>
+                                <a href="precios.html#servicios-adicionales" role="menuitem">Entrenamiento Personal</a>
+                                <a href="precios.html#servicios-adicionales" role="menuitem">Clases Grupales</a>
+                                <a href="precios.html#servicios-adicionales" role="menuitem">Nutrición</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="contacto.html" class="nav-link magnetic link-underline" role="menuitem">Contacto</a>
+                    </li>
+                </ul>
+                
+                <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Toggle de Modo Oscuro -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar entre modo claro y modo oscuro" role="switch" aria-checked="false">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+        <span class="sr-only">Modo oscuro desactivado</span>
+    </button>
+
+    <!-- Indicador de Scroll -->
+    <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true"></div>
+
+    <!-- Contenido principal -->
+    <main id="main-content">
+        <!-- Sección Hero con video de fondo -->
+        <section id="home" class="hero" role="banner" aria-labelledby="hero-title">
+            <div class="hero-video" aria-hidden="true">
+                <video id="heroVideo" autoplay muted loop preload="metadata" playsinline webkit-playsinline 
+                       aria-label="Video de fondo mostrando actividades del gimnasio"
+                       onloadstart="console.log('Video load started')"
+                       oncanplay="console.log('Video can play')"
+                       onerror="console.log('Video error:', this.error)">
+                    <!-- Tu video local en 4K -->
+                    <source src="3191884-uhd_3840_2160_25fps.mp4" type="video/mp4">
+                    <!-- Fallback para navegadores antiguos -->
+                    Tu navegador no soporta video HTML5.
+                </video>
+                
+                <!-- Imagen de respaldo que se muestra siempre como fallback -->
+                <div class="hero-video-fallback"></div>
+            </div>
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title text-gradient">Transforma Tu Cuerpo</h1>
+                    <p class="hero-subtitle theme-responsive-text">Alcanza tus objetivos fitness con nuestros entrenamientos personalizados</p>
+                    <div class="hero-buttons">
+                        <a href="clases.html" class="btn btn-primary ripple btn-loading magnetic shimmer" 
+                           aria-describedby="explore-classes-desc">
+                            <span>Explorar Clases</span>
+                        </a>
+                        <span id="explore-classes-desc" class="sr-only">Descubre nuestras clases de fitness disponibles</span>
+                        
+                        <a href="precios.html" class="btn btn-secondary glass-card ripple magnetic"
+                           aria-describedby="view-prices-desc">
+                            <span>Ver Precios</span>
+                        </a>
+                        <span id="view-prices-desc" class="sr-only">Consulta nuestros planes y precios de membresía</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contador animado -->
+        <section class="stats reveal-bottom" aria-labelledby="stats-title">
+            <div class="container">
+                <h2 id="stats-title" class="sr-only">Estadísticas de FitGym</h2>
+                <div class="stats-grid" role="group" aria-label="Estadísticas del gimnasio">
+                    <div class="stat-item glass-card float-3d" role="group" aria-labelledby="stat1-label">
+                        <div class="counter-number rolling-counter" data-target="500" data-suffix="+" 
+                             aria-live="polite" aria-atomic="true">0</div>
+                        <div id="stat1-label" class="stat-label">Socios Satisfechos</div>
+                    </div>
+                    <div class="stat-item glass-card float-3d" role="group" aria-labelledby="stat2-label">
+                        <div class="counter-number rolling-counter" data-target="15" data-suffix="+"
+                             aria-live="polite" aria-atomic="true">0</div>
+                        <div id="stat2-label" class="stat-label">Entrenadores Expertos</div>
+                    </div>
+                    <div class="stat-item glass-card float-3d" role="group" aria-labelledby="stat3-label">
+                        <div class="counter-number rolling-counter" data-target="30" data-suffix="+"
+                             aria-live="polite" aria-atomic="true">0</div>
+                        <div id="stat3-label" class="stat-label">Clases Semanales</div>
+                    </div>
+                    <div class="stat-item glass-card float-3d" role="group" aria-labelledby="stat4-label">
+                        <div class="counter-number typewriter-counter" data-target="5" data-suffix=" años"
+                             aria-live="polite" aria-atomic="true">0</div>
+                        <div id="stat4-label" class="stat-label">de Experiencia</div>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Clases destacadas -->
+        <section id="clases" class="classes scroll-snap-section" aria-labelledby="classes-title">
+            <div class="container">
+                <h2 id="classes-title" class="section-title text-gradient reveal-bottom">Nuestras Clases Destacadas</h2>
+                <div class="classes-grid" role="list" aria-label="Lista de clases destacadas">
+                    <!-- Fila 1 -->
+                    <article class="class-card" role="listitem" tabindex="0" aria-labelledby="crossfit-title">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" 
+                                 alt="Personas entrenando crossfit con pesas y ejercicios funcionales">
+                            <div class="card-overlay">
+                                <i class="fas fa-dumbbell" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 id="crossfit-title">Crossfit</h3>
+                            <p>Entrenamiento funcional de alta intensidad para mejorar tu condición física general.</p>
+                            <div class="card-info">
+                                <span><i class="fas fa-clock"></i> 45 min</span>
+                                <span><i class="fas fa-fire"></i> Alto</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Combina levantamiento de pesas, ejercicios cardiovasculares y movimientos funcionales. Ideal para quemar grasa y ganar fuerza.</p>
+                        </div>
+                    </article>
+
+                    <article class="class-card" role="listitem" tabindex="0" aria-labelledby="spinning-title">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=400&h=300&fit=crop" 
+                                 alt="Clase de spinning con bicicletas estáticas">
+                            <div class="card-overlay">
+                                <i class="fas fa-bicycle" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 id="spinning-title">Spinning</h3>
+                            <p>Pedalea al ritmo de la música y quema calorías de forma divertida y efectiva.</p>
+                            <div class="card-info">
+                                <span><i class="fas fa-clock"></i> 50 min</span>
+                                <span><i class="fas fa-fire"></i> Alto</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Ejercicio cardiovascular intenso en bicicleta estática. Quema hasta 600 calorías por sesión con música motivadora.</p>
+                        </div>
+                    </article>
+
+                    <article class="class-card" role="listitem" tabindex="0" aria-labelledby="zumba-title">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=400&h=300&fit=crop" 
+                                 alt="Clase de zumba con baile y ejercicio">
+                            <div class="card-overlay">
+                                <i class="fas fa-music" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 id="zumba-title">Zumba</h3>
+                            <p>Baila, diviértete y ponte en forma con ritmos latinos llenos de energía.</p>
+                            <div class="card-info">
+                                <span><i class="fas fa-clock"></i> 55 min</span>
+                                <span><i class="fas fa-heart"></i> Diversión</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Combina baile y fitness con ritmos latinos. Perfecto para mejorar coordinación y quemar calorías divirtiéndote.</p>
+                        </div>
+                    </article>
+
+                    <!-- Fila 2 -->
+                    <article class="class-card" role="listitem" tabindex="0" aria-labelledby="pilates-title">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop" 
+                                 alt="Clase de pilates con ejercicios de flexibilidad">
+                            <div class="card-overlay">
+                                <i class="fas fa-leaf" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 id="pilates-title">Pilates</h3>
+                            <p>Fortalece tu core y mejora tu postura con ejercicios de bajo impacto.</p>
+                            <div class="card-info">
+                                <span><i class="fas fa-clock"></i> 60 min</span>
+                                <span><i class="fas fa-spa"></i> Moderado</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Ejercicios de bajo impacto que fortalecen el core, mejoran la flexibilidad y corrigen la postura corporal.</p>
+                        </div>
+                    </article>
+
+                    <article class="class-card" role="listitem" tabindex="0" aria-labelledby="hiit-title">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=400&h=300&fit=crop" 
+                                 alt="Entrenamiento HIIT de alta intensidad">
+                            <div class="card-overlay">
+                                <i class="fas fa-bolt" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 id="hiit-title">HIIT</h3>
+                            <p>Entrenamiento de intervalos de alta intensidad para máximos resultados.</p>
+                            <div class="card-info">
+                                <span><i class="fas fa-clock"></i> 30 min</span>
+                                <span><i class="fas fa-fire"></i> Extremo</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Entrenamientos cortos pero intensos que aceleran el metabolismo y queman grasa hasta 24 horas después.</p>
+                        </div>
+                    </article>
+
+                    <article class="class-card" role="listitem" tabindex="0" aria-labelledby="boxing-title">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&h=300&fit=crop" 
+                                 alt="Clase de boxeo y entrenamiento de combate">
+                            <div class="card-overlay">
+                                <i class="fas fa-fist-raised" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 id="boxing-title">Boxeo</h3>
+                            <p>Libera estrés y mejora tu condición física con técnicas de boxeo.</p>
+                            <div class="card-info">
+                                <span><i class="fas fa-clock"></i> 45 min</span>
+                                <span><i class="fas fa-fire"></i> Alto</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Aprende técnicas de boxeo mientras mejoras tu resistencia, coordinación y liberas el estrés del día.</p>
+                        </div>
+                    </article>
+
+                    <!-- Fila 3 -->
+                    <article class="class-card" role="listitem" tabindex="0" aria-labelledby="funcional-title">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=300&fit=crop" 
+                                 alt="Entrenamiento funcional con ejercicios variados">
+                            <div class="card-overlay">
+                                <i class="fas fa-running" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 id="funcional-title">Funcional</h3>
+                            <p>Movimientos naturales que mejoran tu rendimiento en actividades diarias.</p>
+                            <div class="card-info">
+                                <span><i class="fas fa-clock"></i> 50 min</span>
+                                <span><i class="fas fa-fire"></i> Moderado</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Ejercicios que imitan movimientos de la vida real para mejorar fuerza, equilibrio y coordinación.</p>
+                        </div>
+                    </article>
+
+                    <article class="class-card" role="listitem" tabindex="0" aria-labelledby="aqua-title">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=300&fit=crop" 
+                                 alt="Aqua aeróbicos en piscina">
+                            <div class="card-overlay">
+                                <i class="fas fa-swimmer" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 id="aqua-title">Aqua Fitness</h3>
+                            <p>Ejercicios acuáticos de bajo impacto ideales para todas las edades.</p>
+                            <div class="card-info">
+                                <span><i class="fas fa-clock"></i> 45 min</span>
+                                <span><i class="fas fa-water"></i> Suave</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Entrenamiento en agua que reduce el impacto en articulaciones mientras tonifica todo el cuerpo.</p>
+                        </div>
+                    </article>
+
+                    <article class="class-card" role="listitem" tabindex="0" aria-labelledby="stretching-title">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1506629905607-c10249838c6b?w=400&h=300&fit=crop" 
+                                 alt="Clase de stretching y flexibilidad">
+                            <div class="card-overlay">
+                                <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 id="stretching-title">Stretching</h3>
+                            <p>Mejora tu flexibilidad y recuperación con estiramientos dirigidos.</p>
+                            <div class="card-info">
+                                <span><i class="fas fa-clock"></i> 30 min</span>
+                                <span><i class="fas fa-spa"></i> Relax</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Sesiones de estiramiento profundo para mejorar flexibilidad, prevenir lesiones y acelerar la recuperación.</p>
+                        </div>
+                    </article>
+                </div>
+    </section>
+
+    <!-- Testimonios en carrusel -->
+    <section class="testimonials reveal-bottom">
+        <div class="container">
+            <h2 class="section-title text-shine">Lo Que Dicen Nuestros Socios</h2>
+            <div class="carousel">
+                <div class="carousel-container">
+                    <div class="testimonial-slide glass-card">
+                        <div class="testimonial-content">
+                            <p>"FitGym cambió mi vida completamente. Los entrenadores son increíbles y las instalaciones son de primera clase."</p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b890?w=80&h=80&fit=crop&crop=face" alt="María González" class="morph-circle-to-square">
+                                <div>
+                                    <h4>María González</h4>
+                                    <span>Socia desde 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide glass-card">
+                        <div class="testimonial-content">
+                            <p>"El ambiente es fantástico y los resultados hablan por sí solos. Recomiendo FitGym al 100%."</p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Carlos Rodríguez">
+                                <div>
+                                    <h4>Carlos Rodríguez</h4>
+                                    <span>Socio desde 2022</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p>"Nunca pensé que hacer ejercicio podría ser tan divertido. Las clases grupales son geniales."</p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Ana Martínez">
+                                <div>
+                                    <h4>Ana Martínez</h4>
+                                    <span>Socia desde 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-dumbbell"></i> FitGym</h3>
+                    <p>Tu gimnasio de confianza para alcanzar todos tus objetivos fitness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Suscríbete para recibir tips de entrenamiento y ofertas especiales.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Horarios</h4>
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span>Lun - Vie:</span>
+                            <span>6:00 - 23:00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span>Sábados:</span>
+                            <span>8:00 - 20:00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span>Domingos:</span>
+                            <span>9:00 - 18:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Ubicación</h4>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=-58.3816%2C-34.6118%2C-58.3616%2C-34.5918&layer=mapnik&marker=-34.6018%2C-58.3716" 
+                            width="100%" 
+                            height="150" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Corrientes 1234, Buenos Aires</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitGym. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+    <!-- Panel de Accesibilidad -->
+    <button class="accessibility-toggle" id="accessibilityToggle" aria-label="Abrir panel de accesibilidad" aria-expanded="false">
+        <i class="fas fa-universal-access" aria-hidden="true"></i>
+    </button>
+
+    <div class="accessibility-panel" id="accessibilityPanel" role="dialog" aria-labelledby="accessibility-title" aria-hidden="true">
+        <h3 id="accessibility-title">Opciones de Accesibilidad</h3>
+        <div class="accessibility-controls">
+            <button id="toggleHighContrast" type="button" aria-pressed="false">
+                <i class="fas fa-adjust" aria-hidden="true"></i>
+                Alto Contraste
+            </button>
+            <button id="toggleReduceMotion" type="button" aria-pressed="false">
+                <i class="fas fa-pause" aria-hidden="true"></i>
+                Reducir Animaciones
+            </button>
+            <button id="increaseFontSize" type="button">
+                <i class="fas fa-text-height" aria-hidden="true"></i>
+                Aumentar Texto
+            </button>
+            <button id="decreaseFontSize" type="button">
+                <i class="fas fa-compress-alt" aria-hidden="true"></i>
+                Reducir Texto
+            </button>
+            <button id="resetAccessibility" type="button">
+                <i class="fas fa-undo" aria-hidden="true"></i>
+                Restablecer
+            </button>
+        </div>
+        <button class="accessibility-close" id="accessibilityClose" aria-label="Cerrar panel de accesibilidad">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- Región para anuncios a lectores de pantalla -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="screenReaderAnnouncements"></div>
+
+    <script src="script.js"></script>
+    <script src="accessibility.js"></script>
+</body>
+</html>
