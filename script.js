@@ -19,6 +19,20 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
         });
 
+        navMenu.addEventListener('shown.bs.collapse', function() {
+            hamburger.classList.add('active');
+            navMenu.classList.add('active');
+            hamburger.setAttribute('aria-expanded', 'true');
+            hamburger.setAttribute('aria-label', 'Cerrar menú de navegación');
+        });
+
+        navMenu.addEventListener('hidden.bs.collapse', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', 'Abrir menú de navegación');
+        });
+
         hamburger.addEventListener('keydown', function(event) {
             if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
@@ -31,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
             if (hamburger && navMenu) {
+                if (window.bootstrap && navMenu.classList.contains('show')) {
+                    bootstrap.Collapse.getOrCreateInstance(navMenu).hide();
+                }
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
@@ -41,6 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape' && hamburger && navMenu) {
+            if (window.bootstrap && navMenu.classList.contains('show')) {
+                bootstrap.Collapse.getOrCreateInstance(navMenu).hide();
+            }
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
@@ -50,6 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('click', function(event) {
         if (hamburger && navMenu && !event.target.closest('.navbar')) {
+            if (window.bootstrap && navMenu.classList.contains('show')) {
+                bootstrap.Collapse.getOrCreateInstance(navMenu).hide();
+            }
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
@@ -387,23 +410,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const compactNavigation = window.matchMedia('(max-width: 768px)').matches;
             if (!compactNavigation) return;
 
-            e.preventDefault();
-            const isOpen = item.classList.contains('active');
-
-            megaMenuItems.forEach(otherItem => {
-                otherItem.classList.remove('active');
-                otherItem.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
-            });
-
-            item.classList.toggle('active', !isOpen);
-            link.setAttribute('aria-expanded', String(!isOpen));
-        });
-
-        link.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                link.click();
+            if (window.bootstrap && navMenu.classList.contains('show')) {
+                bootstrap.Collapse.getOrCreateInstance(navMenu).hide();
             }
+
+            item.classList.remove('active');
+            link.setAttribute('aria-expanded', 'false');
         });
     });
 

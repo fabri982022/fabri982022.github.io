@@ -681,6 +681,7 @@
 
     .trainer-card {
         height: 450px;
+        width: 100%;
     }
 
     .trainer-image {
@@ -731,10 +732,20 @@
 
     .trainer-card {
         height: 400px;
+        max-width: 360px;
+        margin-inline: auto;
     }
 
     .trainer-image {
         height: 250px;
+    }
+
+    .trainer-search {
+        width: 100%;
+    }
+
+    .trainer-search-box input {
+        font-size: 0.9rem;
     }
 
     .trainer-info {

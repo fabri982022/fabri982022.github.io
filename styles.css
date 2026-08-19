@@ -1597,6 +1597,8 @@ button:active,
         visibility: hidden;
         pointer-events: none;
         transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+        max-height: calc(100vh - 68px);
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -1676,6 +1678,24 @@ button:active,
         width: 100%;
     }
 
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    .stat-item {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .stat-number {
+        font-size: clamp(1.8rem, 9vw, 2.6rem);
+    }
+
+    .stat-label {
+        font-size: 0.78rem;
+        letter-spacing: 0.4px;
+    }
+
     .classes-grid,
     .trainers-grid,
     .pricing-grid,
@@ -1708,6 +1728,29 @@ button:active,
 
     .footer-bottom {
         font-size: 0.85rem;
+    }
+
+    .accessibility-panel {
+        top: 72px;
+        right: 12px;
+        left: 12px;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 620px;
+        padding-top: 6rem;
+    }
+
+    .theme-toggle {
+        top: 74px;
+        right: 12px;
     }
 }
 

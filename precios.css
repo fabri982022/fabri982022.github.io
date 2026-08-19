@@ -841,6 +841,7 @@ input:checked + .slider .annual {
     
     .pricing-card {
         padding: 2rem;
+        width: 100%;
     }
     
     .price {
@@ -876,6 +877,30 @@ input:checked + .slider .annual {
     .tooltip-content::after {
         left: 20px;
         transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pricing-card {
+        padding: 1.25rem;
+    }
+
+    .popular-badge {
+        max-width: calc(100% - 2rem);
+        white-space: nowrap;
+    }
+
+    .comparison-table-container {
+        margin-inline: -16px;
+        border-radius: 0;
+    }
+
+    .plan-modal {
+        width: calc(100% - 24px);
     }
 }
 

@@ -1,0 +1,120 @@
+/* Bootstrap integration layer for FitGym */
+:root {
+    --bs-primary: #ff6b35;
+    --bs-primary-rgb: 255, 107, 53;
+    --bs-dark: #1a1a1a;
+    --bs-body-font-family: Arial, sans-serif;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    min-width: 320px;
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.btn,
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+@media (min-width: 768px) {
+    .nav-menu.collapse {
+        display: flex !important;
+    }
+}
+
+/* Keep the existing FitGym navigation while using Bootstrap breakpoints. */
+@media (max-width: 991.98px) {
+    .navbar .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .nav-menu {
+        max-width: 100%;
+    }
+
+    .nav-menu.collapse:not(.show) {
+        display: flex !important;
+    }
+
+    .nav-menu.collapse.show {
+        display: flex !important;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .hamburger.navbar-toggler {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .hero-content,
+    .contact-hero .container,
+    .pricing-hero .container,
+    .classes-hero .container,
+    .trainers-hero .container,
+    .blog-hero .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero-buttons,
+    .billing-toggle,
+    .newsletter-form,
+    .modal-actions {
+        width: 100%;
+    }
+
+    .hero-buttons .btn,
+    .newsletter-form button,
+    .newsletter-form input {
+        width: 100%;
+    }
+
+    .section-title,
+    .contact-hero h1,
+    .pricing-hero h1,
+    .classes-hero .hero-content h1,
+    .trainers-hero h1,
+    .blog-header h1 {
+        overflow-wrap: anywhere;
+    }
+
+    .schedule-table td {
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+}

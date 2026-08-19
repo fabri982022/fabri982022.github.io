@@ -702,6 +702,21 @@
     .map-section {
         padding: 1.5rem;
     }
+
+    .contact-hero {
+        padding: 105px 16px 65px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .map-container iframe {
+        height: 240px;
+    }
 }
 
 /* En contacto el cambio de tema modifica el fondo, no la legibilidad. */

@@ -482,6 +482,14 @@
         width: 250px;
         justify-content: center;
     }
+
+    .classes-gallery {
+        padding: 2.5rem 0;
+    }
+
+    .class-item {
+        height: 260px;
+    }
     
     /* Tabla responsive - Vista de tarjetas en móvil */
     .schedule-container {
@@ -529,6 +537,26 @@
         white-space: nowrap;
         font-weight: 600;
         color: var(--primary-color);
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-btn {
+        width: min(100%, 280px);
+    }
+
+    .class-item {
+        height: 240px;
+    }
+
+    .schedule-table td {
+        padding-left: 42%;
+        font-size: 0.88rem;
+    }
+
+    .schedule-table td:before {
+        width: 38%;
+        font-size: 0.8rem;
     }
 }
 
