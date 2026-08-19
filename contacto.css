@@ -703,3 +703,32 @@
         padding: 1.5rem;
     }
 }
+
+/* En contacto el cambio de tema modifica el fondo, no la legibilidad. */
+[data-theme="dark"] .contact-section {
+    background: #20252b;
+}
+
+[data-theme="dark"] .contact-info h2,
+[data-theme="dark"] .info-content h3,
+[data-theme="dark"] .info-content p,
+[data-theme="dark"] .map-section h3,
+[data-theme="dark"] .contact-form-container h2,
+[data-theme="dark"] .form-group label,
+[data-theme="dark"] .checkbox-label {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .map-section,
+[data-theme="dark"] .contact-form-container {
+    background: #2d353f;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+    color: #ffffff;
+    background: #20252b;
+    border-color: #718096;
+}

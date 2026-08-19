@@ -229,6 +229,86 @@ input:checked + .slider .annual {
     background: linear-gradient(135deg, #ff6b35, #f7931e);
 }
 
+/* Contraste explícito para las tarjetas en ambos temas. */
+.pricing-card,
+.pricing-card.basic,
+.pricing-card.premium,
+.pricing-card.elite {
+    background: #ffffff;
+    color: #20252b;
+}
+
+.pricing-card h3,
+.pricing-card .price,
+.pricing-card .feature-item span {
+    color: #20252b;
+}
+
+.pricing-card .plan-description,
+.pricing-card .period,
+.pricing-card .currency {
+    color: #5b6470;
+}
+
+[data-theme="dark"] .pricing-section,
+[data-theme="dark"] .additional-services,
+[data-theme="dark"] .faq-section {
+    background: #161b21;
+}
+
+[data-theme="dark"] .pricing-card,
+[data-theme="dark"] .pricing-card.basic,
+[data-theme="dark"] .pricing-card.premium,
+[data-theme="dark"] .pricing-card.elite {
+    background: #202832;
+    color: #ffffff;
+    border-color: #586575;
+}
+
+[data-theme="dark"] .pricing-card h3,
+[data-theme="dark"] .pricing-card .price,
+[data-theme="dark"] .pricing-card .feature-item span,
+[data-theme="dark"] .pricing-card .plan-description,
+[data-theme="dark"] .pricing-card .period,
+[data-theme="dark"] .pricing-card .currency,
+[data-theme="dark"] .additional-services h2,
+[data-theme="dark"] .service-card h3,
+[data-theme="dark"] .service-card p,
+[data-theme="dark"] .faq-section h2,
+[data-theme="dark"] .faq-question h3,
+[data-theme="dark"] .faq-answer p {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .comparison-table-container {
+    background: #202832;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .comparison-table td:first-child {
+    background: #2d3743;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .plan-modal,
+[data-theme="dark"] .plan-modal-header,
+[data-theme="dark"] .plan-modal-body {
+    background: #202832 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .plan-modal h3,
+[data-theme="dark"] .plan-modal h4,
+[data-theme="dark"] .plan-modal p {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .plan-modal-close {
+    color: #ffffff !important;
+}
+
 /* ===== HEADER DE LA TARJETA ===== */
 .card-header {
     text-align: center;

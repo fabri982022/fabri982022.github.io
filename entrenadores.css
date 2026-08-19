@@ -153,6 +153,29 @@
     background: var(--primary-color);
 }
 
+.trainer-results {
+    margin: 1rem 0 0;
+    color: var(--text-dark, #222);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.trainer-results.is-empty {
+    color: #b21f2d;
+}
+
+@keyframes filterCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 [data-theme="dark"] .trainer-search label {
     color: var(--text-dark);
 }
@@ -839,4 +862,29 @@
 
 .btn-contact:hover {
     animation: pulse 1.5s infinite;
+}
+
+/* Las tarjetas mantienen una lectura clara en ambos temas. */
+.trainer-card .card-front,
+.trainer-card .trainer-info {
+    background: #ffffff !important;
+}
+
+.trainer-card .trainer-info h3,
+.trainer-card .trainer-info .rating-value {
+    color: #20252b !important;
+}
+
+.trainer-card .trainer-title {
+    color: #c94f29 !important;
+}
+
+[data-theme="dark"] .trainer-card .card-front,
+[data-theme="dark"] .trainer-card .trainer-info {
+    background: #ffffff !important;
+}
+
+[data-theme="dark"] .trainer-card .trainer-info h3,
+[data-theme="dark"] .trainer-card .trainer-info .rating-value {
+    color: #20252b !important;
 }

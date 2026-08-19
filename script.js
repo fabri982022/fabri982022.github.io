@@ -315,7 +315,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     images.forEach(img => imageObserver.observe(img));
 
-    // Mejorar la experiencia del mega menú en dispositivos táctiles
+    // Completar los mega-menús de páginas que usan una navegación simplificada.
+    const menuTemplates = {
+        clases: `
+            <div class="mega-menu-column"><h3>Cardio</h3><a href="clases.html">Spinning</a><a href="clases.html">Zumba</a><a href="clases.html">Aeróbicos</a></div>
+            <div class="mega-menu-column"><h3>Fuerza</h3><a href="clases.html">CrossFit</a><a href="clases.html">Funcional</a><a href="clases.html">Pesas</a></div>
+            <div class="mega-menu-column"><h3>Relajación</h3><a href="clases.html">Yoga</a><a href="clases.html">Pilates</a><a href="clases.html">Stretching</a></div>`,
+        entrenadores: `<div class="mega-menu-column"><h3>Especialistas</h3><a href="entrenadores.html">Personal Trainers</a><a href="entrenadores.html">Instructores de Grupo</a><a href="entrenadores.html">Nutricionistas</a></div>`,
+        precios: `<div class="mega-menu-column"><h3>Membresías</h3><a href="precios.html">Mensual</a><a href="precios.html">Trimestral</a><a href="precios.html">Anual</a></div><div class="mega-menu-column"><h3>Servicios</h3><a href="precios.html#servicios-adicionales">Entrenamiento Personal</a><a href="precios.html#servicios-adicionales">Clases Grupales</a><a href="precios.html#servicios-adicionales">Nutrición</a></div>`
+    };
+
+    document.querySelectorAll('.nav-item:not(.mega-menu) > .nav-link').forEach(link => {
+        const page = link.getAttribute('href')?.replace('.html', '');
+        const template = menuTemplates[page];
+        if (!template) return;
+
+        const item = link.parentElement;
+        item.classList.add('mega-menu');
+        link.innerHTML += ' <i class="fas fa-chevron-down" aria-hidden="true"></i>';
+        const content = document.createElement('div');
+        content.className = 'mega-menu-content';
+        content.setAttribute('role', 'menu');
+        content.innerHTML = template;
+        item.appendChild(content);
+    });
+
     const megaMenuItems = document.querySelectorAll('.mega-menu');
     
     megaMenuItems.forEach(item => {
@@ -1427,6 +1451,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ========== SISTEMA DE FILTROS PARA ENTRENADORES ==========
+function normalizeFilterText(value) {
+    return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 function initTrainerFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const trainerCards = document.querySelectorAll('.trainer-card');
@@ -1440,24 +1468,35 @@ function initTrainerFilters() {
     let searchTerm = '';
 
     function filterTrainers() {
+        let visibleCount = 0;
+
         trainerCards.forEach(card => {
             const trainerCategory = card.getAttribute('data-category');
 
-            const searchableText = card.textContent.toLowerCase();
-            const matchesCategory = activeCategory === 'all' || trainerCategory?.includes(activeCategory);
-            const matchesSearch = searchableText.includes(searchTerm);
+            const searchableText = normalizeFilterText(card.textContent);
+            const normalizedSearch = normalizeFilterText(searchTerm);
+            const matchesCategory = activeCategory === 'all' || trainerCategory?.split(' ').includes(activeCategory);
+            const matchesSearch = searchableText.includes(normalizedSearch);
             const isVisible = matchesCategory && matchesSearch;
 
             if (isVisible) {
+                visibleCount += 1;
                 card.classList.remove('hidden');
                 card.style.display = 'block';
                 card.setAttribute('aria-hidden', 'false');
+                card.style.animation = 'filterCardIn 0.45s ease both';
             } else {
                 card.classList.add('hidden');
                 card.style.display = 'none';
                 card.setAttribute('aria-hidden', 'true');
             }
         });
+
+        const resultCounter = document.querySelector('.trainer-results');
+        if (resultCounter) {
+            resultCounter.textContent = `${visibleCount} entrenador${visibleCount === 1 ? '' : 'es'} encontrado${visibleCount === 1 ? '' : 's'}`;
+            resultCounter.classList.toggle('is-empty', visibleCount === 0);
+        }
     }
     
     // Event listeners para los botones de filtro
@@ -1471,6 +1510,7 @@ function initTrainerFilters() {
             
             // Obtener categoría y filtrar
             activeCategory = this.getAttribute('data-filter');
+            filterButtons.forEach(btn => btn.setAttribute('aria-pressed', String(btn === this)));
             filterTrainers();
             
             // Efecto visual en el botón
@@ -1497,6 +1537,11 @@ function initTrainerFilters() {
         `;
         filterContainer.appendChild(searchWrapper);
 
+        const resultCounter = document.createElement('p');
+        resultCounter.className = 'trainer-results';
+        resultCounter.setAttribute('aria-live', 'polite');
+        filterContainer.appendChild(resultCounter);
+
         const searchInput = searchWrapper.querySelector('input');
         const clearButton = searchWrapper.querySelector('.trainer-search-clear');
         searchInput.addEventListener('input', function() {
@@ -1513,5 +1558,8 @@ function initTrainerFilters() {
         });
     }
 
+    filterButtons.forEach(button => {
+        button.setAttribute('aria-pressed', String(button.classList.contains('active')));
+    });
     filterTrainers();
 }
