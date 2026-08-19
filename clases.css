@@ -175,6 +175,10 @@
     display: block;
 }
 
+.class-item.filter-hidden {
+    display: none;
+}
+
 /* Ocultar todas cuando un filtro específico está activo */
 #musculacion:checked ~ .classes-gallery .class-item:not([data-category="musculacion"]),
 #crossfit:checked ~ .classes-gallery .class-item:not([data-category="crossfit"]),

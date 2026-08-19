@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initArticleAnimations();
     initLazyLoading();
     initCommentInteractions();
-    initDarkMode(); // Agregar modo oscuro
+    // El modo claro/oscuro se inicializa en el script compartido.
 });
 
 // ============================================================================

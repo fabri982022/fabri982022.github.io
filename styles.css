@@ -29,6 +29,9 @@
     --text-secondary: #666666;
     --text-muted: #999999;
     --text-inverse: #ffffff;
+    --text-dark: #222222;
+    --text-light: #5b6470;
+    --surface-border: #e1e5e9;
     
     /* Colores de estado */
     --success-color: #28a745;
@@ -147,6 +150,9 @@
     --text-secondary: #cccccc;
     --text-muted: #999999;
     --text-inverse: #333333;
+    --text-dark: #f4f7fb;
+    --text-light: #c9d1db;
+    --surface-border: #4c5663;
     
     /* Ajustes de colores para mejor contraste */
     --primary-alpha: rgba(255, 107, 53, 0.2);
@@ -250,6 +256,12 @@ body {
 }
 
 .mega-menu:hover .mega-menu-content {
+    display: grid;
+    animation: fadeInDown 0.3s ease;
+}
+
+.mega-menu.active .mega-menu-content,
+.mega-menu:focus-within .mega-menu-content {
     display: grid;
     animation: fadeInDown 0.3s ease;
 }
@@ -855,6 +867,8 @@ input:focus, textarea:focus, select:focus {
     transition: var(--transition-slow);
     transform: translateZ(0);
     border: 1px solid transparent;
+    isolation: isolate;
+    will-change: transform, box-shadow;
 }
 
 .class-card:hover {
@@ -863,6 +877,22 @@ input:focus, textarea:focus, select:focus {
         var(--shadow-xl),
         0 0 30px rgba(255, 107, 53, 0.2);
     border-color: var(--primary-color);
+}
+
+.class-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), transparent 45%, rgba(255, 209, 102, 0.2));
+    opacity: 0;
+    transition: opacity 0.45s ease;
+}
+
+.class-card:hover::after,
+.class-card:focus-visible::after {
+    opacity: 1;
 }
 
 .card-image {
@@ -946,7 +976,8 @@ input:focus, textarea:focus, select:focus {
     transform: translateY(100%);
     transition: var(--transition-slow);
     opacity: 0;
-    z-index: 2;
+    z-index: 3;
+    backdrop-filter: blur(8px);
 }
 
 .class-card:hover .card-description {
@@ -959,6 +990,19 @@ input:focus, textarea:focus, select:focus {
     font-size: 0.9rem;
     line-height: 1.5;
     color: var(--text-inverse);
+}
+
+[data-theme="dark"] .class-card,
+[data-theme="dark"] .testimonial-slide {
+    color: var(--text-dark);
+    background: #242b34;
+    border-color: var(--surface-border);
+}
+
+[data-theme="dark"] .card-content h3,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .card-content p {
+    color: var(--text-dark);
 }
 
 /* Footer */
@@ -1115,10 +1159,10 @@ input:focus, textarea:focus, select:focus {
     z-index: var(--z-fixed);
     background: var(--primary-color);
     color: var(--text-inverse);
-    border: none;
+    border: 2px solid rgba(255, 255, 255, 0.35);
     border-radius: var(--border-radius-full);
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     cursor: pointer;
     box-shadow: var(--shadow-lg);
     transition: var(--transition-bounce);
@@ -1129,13 +1173,34 @@ input:focus, textarea:focus, select:focus {
 }
 
 .theme-toggle:hover {
-    transform: scale(1.1) rotate(15deg);
+    transform: translateY(-3px) rotate(12deg);
+    background: var(--primary-dark);
     box-shadow: var(--shadow-xl);
 }
 
 .theme-toggle.dark-mode {
     background: var(--secondary-color);
     transform: rotate(180deg);
+}
+
+.theme-toggle-animate {
+    animation: themeToggleSpin 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.theme-icon-sun,
+.theme-icon-moon {
+    animation: themeIconPop 0.55s ease both;
+}
+
+@keyframes themeToggleSpin {
+    0% { transform: scale(0.85) rotate(0deg); }
+    55% { transform: scale(1.12) rotate(180deg); }
+    100% { transform: scale(1) rotate(360deg); }
+}
+
+@keyframes themeIconPop {
+    0% { opacity: 0; transform: scale(0.4) rotate(-90deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
 }
 
 /* ========== CLIP-PATH & MASKING ========== */
@@ -1407,6 +1472,224 @@ body {
     .testimonial-author img {
         width: 50px;
         height: 50px;
+    }
+}
+
+/* ========== AJUSTES GLOBALES RESPONSIVE ========== */
+button,
+a,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+.btn,
+.cta-button,
+.submit-btn,
+.filter-btn,
+.filter-tag,
+.btn-contact,
+.btn-reserve {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+button:hover,
+.btn:hover,
+.cta-button:hover,
+.submit-btn:hover,
+.filter-btn:hover,
+.filter-tag:hover,
+.btn-contact:hover,
+.btn-reserve:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(255, 107, 53, 0.28);
+}
+
+button:active,
+.btn:active,
+.cta-button:active,
+.submit-btn:active,
+.filter-btn:active,
+.filter-tag:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.footer-bottom strong {
+    color: var(--primary-light);
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .header {
+        min-height: 68px;
+    }
+
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .logo h2 {
+        font-size: 1.35rem;
+    }
+
+    .hamburger {
+        display: flex;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 8px;
+        background: transparent;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        padding: 0.75rem 16px 1rem;
+        background: rgba(26, 26, 26, 0.98);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-12px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .nav-item,
+    .nav-link {
+        width: 100%;
+    }
+
+    .nav-link {
+        justify-content: space-between;
+        padding: 0.8rem 1rem;
+    }
+
+    .mega-menu-content {
+        position: static;
+        min-width: 0;
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+    }
+
+    .mega-menu:hover .mega-menu-content {
+        display: none;
+    }
+
+    .mega-menu:focus-within .mega-menu-content,
+    .mega-menu.active .mega-menu-content {
+        display: grid;
+    }
+
+    .theme-toggle {
+        top: 76px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .hero {
+        min-height: 680px;
+        height: auto;
+        padding: 7rem 0 5rem;
+        clip-path: none;
+    }
+
+    .hero-title,
+    .contact-hero h1,
+    .pricing-hero h1,
+    .classes-hero .hero-content h1,
+    .trainers-hero h1 {
+        font-size: clamp(2.1rem, 10vw, 3rem);
+        line-height: 1.1;
+    }
+
+    .hero-subtitle,
+    .contact-hero p,
+    .pricing-hero p,
+    .classes-hero .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons,
+    .billing-toggle {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn,
+    .billing-toggle > * {
+        width: 100%;
+    }
+
+    .classes-grid,
+    .trainers-grid,
+    .pricing-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        padding-top: 2.5rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-section .social-links {
+        justify-content: center;
+    }
+
+    .footer-section .newsletter-form {
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .footer-section iframe {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        font-size: 0.85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button:hover,
+    .btn:hover,
+    .filter-btn:hover,
+    .filter-tag:hover {
+        transform: none;
     }
 }
 

@@ -508,16 +508,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function addKnowledgeOverlays() {
+        trainerCards.forEach(card => {
+            const image = card.querySelector('.trainer-image');
+            const skills = card.querySelectorAll('.skill-progress');
+            if (!image || !skills.length || image.querySelector('.knowledge-overlay')) return;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'knowledge-overlay';
+            overlay.innerHTML = '<strong>Conocimientos</strong>';
+
+            skills.forEach(skill => {
+                const skillItem = skill.closest('.skill-item');
+                const label = skillItem?.querySelector('.skill-info span')?.textContent || 'Especialidad';
+                const value = skill.dataset.skill || '0';
+                overlay.insertAdjacentHTML('beforeend', `
+                    <div class="knowledge-row">
+                        <span>${label}</span>
+                        <span>${value}%</span>
+                    </div>
+                    <div class="knowledge-bar"><span style="--knowledge-width: ${value}%"></span></div>
+                `);
+            });
+
+            image.appendChild(overlay);
+        });
+    }
+
     // Inicializar todas las funcionalidades
-    initializeFilters();
     animateSkillBars();
     enhanceFlipEffect();
     animateTeamStats();
     enhanceRatingSystem();
-    createSearchFunctionality();
     handleContactButtons();
     addParallaxEffect();
     addSpecialtyTooltips();
+    addKnowledgeOverlays();
 
     // Animación de entrada escalonada
     setTimeout(() => {

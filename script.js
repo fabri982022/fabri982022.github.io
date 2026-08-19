@@ -4,16 +4,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            const isOpen = hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active', isOpen);
+            hamburger.setAttribute('aria-expanded', String(isOpen));
+            hamburger.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+        });
+    }
 
     // Cerrar menú al hacer click en un enlace
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+            if (hamburger && navMenu) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Abrir menú de navegación');
+            }
         });
     });
 
@@ -82,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.header');
 
     window.addEventListener('scroll', function() {
+        if (!header) return;
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (scrollTop > 100) {
@@ -312,23 +321,34 @@ document.addEventListener('DOMContentLoaded', function() {
     megaMenuItems.forEach(item => {
         const link = item.querySelector('.nav-link');
         const content = item.querySelector('.mega-menu-content');
-        
-        // Para dispositivos táctiles
-        if ('ontouchstart' in window) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Cerrar otros menús abiertos
-                megaMenuItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                
-                // Toggle el menú actual
-                item.classList.toggle('active');
+
+        if (!link || !content) return;
+
+        link.setAttribute('aria-haspopup', 'true');
+        link.setAttribute('aria-expanded', 'false');
+
+        link.addEventListener('click', function(e) {
+            const compactNavigation = window.matchMedia('(max-width: 768px)').matches;
+            if (!compactNavigation) return;
+
+            e.preventDefault();
+            const isOpen = item.classList.contains('active');
+
+            megaMenuItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
             });
-        }
+
+            item.classList.toggle('active', !isOpen);
+            link.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        link.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                link.click();
+            }
+        });
     });
 
     // Cerrar mega menú al hacer click fuera
@@ -336,6 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!e.target.closest('.mega-menu')) {
             megaMenuItems.forEach(item => {
                 item.classList.remove('active');
+                item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
             });
         }
     });
@@ -488,6 +509,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initDarkMode() {
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
+    if (!themeToggle) return;
     const themeIcon = themeToggle.querySelector('i');
     
     // Verificar preferencia guardada
@@ -497,10 +519,10 @@ function initDarkMode() {
     // Aplicar tema inicial
     if (savedTheme) {
         body.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme, themeIcon);
+        updateThemeIcon(savedTheme, themeIcon, themeToggle);
     } else if (prefersDark) {
         body.setAttribute('data-theme', 'dark');
-        updateThemeIcon('dark', themeIcon);
+        updateThemeIcon('dark', themeIcon, themeToggle);
     }
     
     // Toggle del tema
@@ -539,13 +561,12 @@ function initDarkMode() {
         localStorage.setItem('theme', newTheme);
         
         // Actualizar icono
-        updateThemeIcon(newTheme, themeIcon);
+        updateThemeIcon(newTheme, themeIcon, themeToggle);
         
         // Animación del botón
-        themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
-        setTimeout(() => {
-            themeToggle.style.transform = 'scale(1) rotate(0deg)';
-        }, 150);
+        themeToggle.classList.remove('theme-toggle-animate');
+        themeToggle.getBoundingClientRect();
+        themeToggle.classList.add('theme-toggle-animate');
         
         // Remover transición después del cambio
         setTimeout(() => {
@@ -561,18 +582,26 @@ function initDarkMode() {
         if (!localStorage.getItem('theme')) {
             const newTheme = e.matches ? 'dark' : 'light';
             body.setAttribute('data-theme', newTheme);
-            updateThemeIcon(newTheme, themeIcon);
+            updateThemeIcon(newTheme, themeIcon, themeToggle);
         }
     });
 }
 
-function updateThemeIcon(theme, icon) {
+function updateThemeIcon(theme, icon, toggle) {
+    if (!icon) return;
+    icon.classList.remove('theme-icon-sun', 'theme-icon-moon');
     if (theme === 'dark') {
         icon.className = 'fas fa-sun';
+        icon.classList.add('theme-icon-sun');
         icon.style.color = '#ffd700';
+        toggle?.setAttribute('aria-label', 'Cambiar a modo claro');
+        toggle?.setAttribute('aria-checked', 'true');
     } else {
         icon.className = 'fas fa-moon';
+        icon.classList.add('theme-icon-moon');
         icon.style.color = '#ffffff';
+        toggle?.setAttribute('aria-label', 'Cambiar a modo oscuro');
+        toggle?.setAttribute('aria-checked', 'false');
     }
 }
 
@@ -1407,28 +1436,26 @@ function initTrainerFilters() {
         return;
     }
     
-    function filterTrainers(category) {
+    let activeCategory = 'all';
+    let searchTerm = '';
+
+    function filterTrainers() {
         trainerCards.forEach(card => {
             const trainerCategory = card.getAttribute('data-category');
-            
-            if (category === 'all' || trainerCategory === category || trainerCategory?.includes(category)) {
+
+            const searchableText = card.textContent.toLowerCase();
+            const matchesCategory = activeCategory === 'all' || trainerCategory?.includes(activeCategory);
+            const matchesSearch = searchableText.includes(searchTerm);
+            const isVisible = matchesCategory && matchesSearch;
+
+            if (isVisible) {
                 card.classList.remove('hidden');
                 card.style.display = 'block';
-                // Animar entrada
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                }, 50);
+                card.setAttribute('aria-hidden', 'false');
             } else {
                 card.classList.add('hidden');
-                // Animar salida antes de ocultar
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.8)';
-                setTimeout(() => {
-                    if (card.classList.contains('hidden')) {
-                        card.style.display = 'none';
-                    }
-                }, 500);
+                card.style.display = 'none';
+                card.setAttribute('aria-hidden', 'true');
             }
         });
     }
@@ -1443,8 +1470,8 @@ function initTrainerFilters() {
             this.classList.add('active');
             
             // Obtener categoría y filtrar
-            const category = this.getAttribute('data-filter');
-            filterTrainers(category);
+            activeCategory = this.getAttribute('data-filter');
+            filterTrainers();
             
             // Efecto visual en el botón
             this.style.transform = 'scale(0.95)';
@@ -1454,6 +1481,37 @@ function initTrainerFilters() {
         });
     });
     
-    // Función para mostrar todas las tarjetas inicialmente
-    filterTrainers('all');
+    const filterContainer = document.querySelector('.trainer-filters .container');
+    if (filterContainer && !document.getElementById('trainer-search')) {
+        const searchWrapper = document.createElement('div');
+        searchWrapper.className = 'trainer-search';
+        searchWrapper.innerHTML = `
+            <label for="trainer-search">Buscar entrenador</label>
+            <div class="trainer-search-box">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input id="trainer-search" type="search" placeholder="Nombre, especialidad o disciplina" autocomplete="off">
+                <button type="button" class="trainer-search-clear" aria-label="Limpiar búsqueda" hidden>
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+        `;
+        filterContainer.appendChild(searchWrapper);
+
+        const searchInput = searchWrapper.querySelector('input');
+        const clearButton = searchWrapper.querySelector('.trainer-search-clear');
+        searchInput.addEventListener('input', function() {
+            searchTerm = this.value.toLowerCase().trim();
+            clearButton.hidden = !searchTerm;
+            filterTrainers();
+        });
+        clearButton.addEventListener('click', function() {
+            searchInput.value = '';
+            searchTerm = '';
+            clearButton.hidden = true;
+            searchInput.focus();
+            filterTrainers();
+        });
+    }
+
+    filterTrainers();
 }
