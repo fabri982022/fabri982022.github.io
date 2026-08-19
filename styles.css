@@ -1563,6 +1563,24 @@ button:active,
         background: transparent;
     }
 
+    .hamburger .bar {
+        display: block;
+        transform-origin: center;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
     .nav-menu {
         position: absolute;
         top: 100%;

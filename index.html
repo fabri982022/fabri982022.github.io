@@ -497,43 +497,6 @@
     </footer>
     </main>
 
-    <!-- Panel de Accesibilidad -->
-    <button class="accessibility-toggle" id="accessibilityToggle" aria-label="Abrir panel de accesibilidad" aria-expanded="false">
-        <i class="fas fa-universal-access" aria-hidden="true"></i>
-    </button>
-
-    <div class="accessibility-panel" id="accessibilityPanel" role="dialog" aria-labelledby="accessibility-title" aria-hidden="true">
-        <h3 id="accessibility-title">Opciones de Accesibilidad</h3>
-        <div class="accessibility-controls">
-            <button id="toggleHighContrast" type="button" aria-pressed="false">
-                <i class="fas fa-adjust" aria-hidden="true"></i>
-                Alto Contraste
-            </button>
-            <button id="toggleReduceMotion" type="button" aria-pressed="false">
-                <i class="fas fa-pause" aria-hidden="true"></i>
-                Reducir Animaciones
-            </button>
-            <button id="increaseFontSize" type="button">
-                <i class="fas fa-text-height" aria-hidden="true"></i>
-                Aumentar Texto
-            </button>
-            <button id="decreaseFontSize" type="button">
-                <i class="fas fa-compress-alt" aria-hidden="true"></i>
-                Reducir Texto
-            </button>
-            <button id="resetAccessibility" type="button">
-                <i class="fas fa-undo" aria-hidden="true"></i>
-                Restablecer
-            </button>
-        </div>
-        <button class="accessibility-close" id="accessibilityClose" aria-label="Cerrar panel de accesibilidad">
-            <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-    </div>
-
-    <!-- Región para anuncios a lectores de pantalla -->
-    <div aria-live="polite" aria-atomic="true" class="sr-only" id="screenReaderAnnouncements"></div>
-
     <script src="script.js"></script>
     <script src="accessibility.js"></script>
 </body>

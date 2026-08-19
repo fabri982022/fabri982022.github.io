@@ -5,11 +5,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.querySelector('.nav-menu');
 
     if (hamburger && navMenu) {
+        const menuId = navMenu.id || 'nav-menu';
+        navMenu.id = menuId;
+        hamburger.setAttribute('aria-controls', menuId);
+        hamburger.setAttribute('type', 'button');
+        hamburger.setAttribute('role', 'button');
+        hamburger.setAttribute('tabindex', '0');
+
         hamburger.addEventListener('click', function() {
             const isOpen = hamburger.classList.toggle('active');
             navMenu.classList.toggle('active', isOpen);
             hamburger.setAttribute('aria-expanded', String(isOpen));
             hamburger.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+        });
+
+        hamburger.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                hamburger.click();
+            }
         });
     }
 
@@ -23,6 +37,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 hamburger.setAttribute('aria-label', 'Abrir menú de navegación');
             }
         });
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && hamburger && navMenu) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', 'Abrir menú de navegación');
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (hamburger && navMenu && !event.target.closest('.navbar')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', 'Abrir menú de navegación');
+        }
     });
 
     // Contador animado
@@ -1368,24 +1400,6 @@ function closeAccessibilityPanel() {
     }
 }
 
-// Añadir botón de accesibilidad
-function addAccessibilityButton() {
-    const accessibilityBtn = document.createElement('button');
-    accessibilityBtn.className = 'accessibility-toggle';
-    accessibilityBtn.setAttribute('aria-label', 'Abrir configuración de accesibilidad');
-    accessibilityBtn.innerHTML = '<i class="fas fa-universal-access" aria-hidden="true"></i>';
-    
-    accessibilityBtn.addEventListener('click', openAccessibilityPanel);
-    
-    // Posicionar después del theme toggle
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        themeToggle.parentNode.insertBefore(accessibilityBtn, themeToggle.nextSibling);
-    } else {
-        document.body.appendChild(accessibilityBtn);
-    }
-}
-
 // Inicializar todas las mejoras de accesibilidad
 function initAllAccessibilityEnhancements() {
     initAccessibleThemeToggle();
@@ -1394,7 +1408,6 @@ function initAllAccessibilityEnhancements() {
     initAccessibleLoadingButtons();
     initAccessibleCards();
     createAccessibilityPanel();
-    addAccessibilityButton();
     
     // Verificar si hay errores de accesibilidad en desarrollo
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
